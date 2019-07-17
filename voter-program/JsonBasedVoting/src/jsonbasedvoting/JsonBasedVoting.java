@@ -84,6 +84,7 @@ public class JsonBasedVoting {
                 } else if (choice.equals("4")){
                     DeleteUser();
                 } else if (choice.equals("5")){
+                    clearConsole();
                     StartVote();
                 } else {
                     System.out.println("[-] Invalid choice. Try again.");
@@ -98,8 +99,8 @@ public class JsonBasedVoting {
     public static Candidate[] candidateList = classifyCandidates(Data);
     public static Officer[] officerList = classifyAdmins(Data);
     public static boolean loginSuccessful = false;
-	public static boolean stillVoting = true;
-	public static int voteCount = 0;
+    public static boolean stillVoting = true;
+    public static int voteCount = 0;
     
     static void StartVote() {
         // So this is the functiion that will loop undefietly untill
@@ -107,9 +108,9 @@ public class JsonBasedVoting {
 		int totalVoters = voterList.length + candidateList.length + officerList.length;
         
         while (stillVoting){
-			if (totalVoters <= voteCount){
-				stillVoting = false;
-			}
+            if (totalVoters <= voteCount){
+                stillVoting = false;
+            }
             System.out.println("[+] Welcome to the voting center.");
             System.out.println("[+] Please enter your credentials.");
             String AttemptedUsername = getValidInput("[+] Enter a username : ", 8);
@@ -128,18 +129,21 @@ public class JsonBasedVoting {
                     // TODO enter logic if the login creds are correct
                     loginSuccessful = true;
                     showMenu("0x01", i);
+                    clearConsole();
                 }}
             for (int i = 0; i < candidateList.length; i++){
                 if (candidateList[i].Identity.equals(AttemptedUsername) & candidateList[i].Passphrase.equals(AttemptedPassword)){
                     // TODO enter logic if the login creds are correct
                     loginSuccessful = true;
                      showMenu("0x02", i);
+                     clearConsole();
                 }}
             for (int i = 0; i < officerList.length; i++){
                 if (officerList[i].Identity.equals(AttemptedUsername) & officerList[i].Passphrase.equals(AttemptedPassword)){
                     // TODO enter logic if the login creds are correct
                     loginSuccessful = true;
                     showMenu("0x03", i);
+                    clearConsole();
                 }}
             if (!loginSuccessful){
                 // TODO enter logic if the login creds are incorrect
@@ -150,15 +154,14 @@ public class JsonBasedVoting {
 		System.out.println("<< Voting Completed >>");
 		System.out.println("----------------------");
 		for (int i = 0; i < candidateList.length; i++){
-			System.out.println(candidateList[i].UserName + "\t\t" + candidateList[i].votecount);
+			System.out.println(candidateList[i].UserName + "\t\t\t" + candidateList[i].votecount);
 		}
 
 		int greatestIndex = 0;
 		for (int i = 0; i < candidateList.length; i++){
 			if (candidateList[i].votecount > greatestIndex){
 				greatestIndex = i;
-			}
-		}
+			}}
 
 		if (greatestIndex == 0){
 			System.out.println("No one came to vote");
@@ -170,8 +173,17 @@ public class JsonBasedVoting {
 		exit(0);
     }
     
+    static void LotsOfLines(){
+		// what this function does is print a lot of
+		// lines until the previous data is scrolled
+		// up
+        for (int i = 0; i < 300; i++){
+			System.out.println("");
+		}
+    }
+    
     static void showMenu(String userType, Integer index){
-		System.out.println("");
+        System.out.println("");
         if (userType.equals("0x01")){
 			System.out.println("Welcome " + voterList[index].UserName);
 			System.out.println("");
@@ -258,6 +270,20 @@ public class JsonBasedVoting {
 			}}
 		return(input);
 	}
+
+	public final static void clearConsole() {
+            try {
+                final String os = System.getProperty("os.name");
+                if (os.contains("Windows")) {
+                        Runtime.getRuntime().exec("cls");
+                } else {
+                        Runtime.getRuntime().exec("clear");
+                }}
+            catch (final Exception e) {
+                //  Handle any exceptions.
+            }
+            LotsOfLines();
+	}
     
     static Voter[] classifyVoters(ArrayList<String[]> Input){
         // so what this function does is accept a ArrayList<String[]> as
@@ -268,10 +294,10 @@ public class JsonBasedVoting {
         ArrayList<Voter> ReturnList = new ArrayList<Voter>();
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x01")){
-                Voter Current = new Voter();
-                Current.Identity = Input.get(i)[3];
-                Current.Passphrase = Input.get(i)[2];
-                Current.UserName = Input.get(i)[1];
+                Voter Current = new Voter(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2]);
+//                Current.Identity = Input.get(i)[3];
+//                Current.Passphrase = Input.get(i)[2];
+//                Current.UserName = Input.get(i)[1];
                 ReturnList.add(Current);
             }
         }
@@ -286,10 +312,10 @@ public class JsonBasedVoting {
         ArrayList<Candidate> ReturnList = new ArrayList<Candidate>();
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x02")){
-                Candidate Current = new Candidate();
-                Current.Identity = Input.get(i)[3];
-                Current.Passphrase = Input.get(i)[2];
-                Current.UserName = Input.get(i)[1];
+                Candidate Current = new Candidate(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2]);
+//                Current.Identity = Input.get(i)[3];
+//                Current.Passphrase = Input.get(i)[2];
+//                Current.UserName = Input.get(i)[1];
                 ReturnList.add(Current);
             }
         }
@@ -303,10 +329,10 @@ public class JsonBasedVoting {
         ArrayList<Officer> ReturnList = new ArrayList<Officer>();
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x03")){
-                Officer Current = new Officer();
-                Current.Identity = Input.get(i)[3];
-                Current.Passphrase = Input.get(i)[2];
-                Current.UserName = Input.get(i)[1];
+                Officer Current = new Officer(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2]);
+//                Current.Identity = Input.get(i)[3];
+//                Current.Passphrase = Input.get(i)[2];
+//                Current.UserName = Input.get(i)[1];
                 ReturnList.add(Current);
             }
         }
@@ -495,14 +521,27 @@ class Voter {
     String UserName = "None";
     String Passphrase = "None";
     Boolean Voted = false;
+    
+    public Voter(String IdentityIn, String UsernameIn, String PassphraseIn){
+        Identity = IdentityIn;
+        UserName = UsernameIn;
+        Passphrase = PassphraseIn;
+    }
 }
 
 class Candidate extends Voter{
 //    String CandidateCity = "None";
 //    String CandidateParty = "None";
     int votecount = 0;
+    public Candidate(String IdentityIn, String UsernameIn, String PassphraseIn) {
+        super(IdentityIn, UsernameIn, PassphraseIn);
+    }
+
 }
 
 class Officer extends Voter{
 //    int OfficerVerificationID = 0;
+    public Officer(String IdentityIn, String UsernameIn, String PassphraseIn) {
+        super(IdentityIn, UsernameIn, PassphraseIn);
+    }
 }
