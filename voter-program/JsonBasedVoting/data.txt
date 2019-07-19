@@ -1,10 +1,10 @@
-0x03,Sam Ramirez,1234567890,S1900343
-0x03,Ahmed Iruhaan,password,13049166
-0x03,Abdulla Riyaz,password,9e26ec16
-0x01,Batman Bruce Wayne,BHBFDF8776f,69b63101
-0x01,Robin Something Something,431r32sdfd,77d0e2d3
-0x01,Banana Joe,12345678,12345678
-0x02,Donald Trump,123,123
-0x02,Leslie Knope,123,123
-0x02,Barack Barry Obama,123,123
-0x02,Chewing Gum Watterson,12345678,GumballW
+0x03,Sam Ramirez,1234567890,S1900343,A1000
+0x03,Ahmed Iruhaan,password,13049166,A1001
+0x03,Abdulla Riyaz,password,9e26ec16,A1002
+0x01,Batman Bruce Wayne,BHBFDF8776f,69b63101,A1003
+0x01,Robin Something Something,431r32sdfd,77d0e2d3,A1004
+0x01,Banana Joe,12345678,12345678,A1005
+0x02,Donald Trump,123,123,A1006
+0x02,Leslie Knope,123,123,A1007
+0x02,Barack Barry Obama,123,123,A1008
+0x02,Chewing Gum Watterson,12345678,GumballW,A1009

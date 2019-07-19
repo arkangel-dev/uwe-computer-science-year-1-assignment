@@ -190,12 +190,12 @@ public class JsonBasedVoting {
             if (!voterList[index].Voted){
 				// *****************************************************
 				for (int i = 0; i < candidateList.length; i++){
-					System.out.println("\t\t" + i + "." + candidateList[i].UserName);
+					System.out.println("\t\t" + (i + 1) + "." + candidateList[i].UserName);
 				}
 				System.out.println("");
 				System.out.println("Please make a selection.");
-				int selectedIndex = rangedInput(0, candidateList.length - 1);
-				candidateList[selectedIndex].votecount ++;
+				int selectedIndex = rangedInput(1, candidateList.length);
+				candidateList[selectedIndex - 1].votecount ++;
 				voterList[index].Voted = true;
 				// *****************************************************
             } else {
@@ -208,12 +208,12 @@ public class JsonBasedVoting {
 				System.out.println("Seems like you haven't voted yet. So please make a selection.");
 				// *****************************************************
 				for (int i = 0; i < candidateList.length; i++){
-					System.out.println("\t\t" + i + "." + candidateList[i].UserName);
+					System.out.println("\t\t" + (i + 1) + "." + candidateList[i].UserName);
 				}
 				System.out.println("");
 				System.out.println("Please make a selection.");
-				int selectedIndex = rangedInput(0, candidateList.length - 1);
-				candidateList[selectedIndex].votecount ++;
+				int selectedIndex = rangedInput(1, candidateList.length);
+				candidateList[selectedIndex - 1].votecount ++;
 				candidateList[index].Voted = true;
 				// *****************************************************
 			} else {
@@ -226,12 +226,12 @@ public class JsonBasedVoting {
 				System.out.println("Seems like you haven't voted.");
 				// *****************************************************
 				for (int i = 0; i < candidateList.length; i++){
-					System.out.println("\t\t" + i + "." + candidateList[i].UserName);
+					System.out.println("\t\t" + (i + 1) + "." + candidateList[i].UserName);
 				}
 				System.out.println("");
 				System.out.println("Please make a selection.");
-				int selectedIndex = rangedInput(0, candidateList.length - 1);
-				candidateList[selectedIndex].votecount ++;
+				int selectedIndex = rangedInput(1, candidateList.length);
+				candidateList[selectedIndex - 1].votecount ++;
 				officerList[index].Voted = true;
 				// *****************************************************
 			}
@@ -294,7 +294,7 @@ public class JsonBasedVoting {
         ArrayList<Voter> ReturnList = new ArrayList<Voter>();
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x01")){
-                Voter Current = new Voter(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2]);
+                Voter Current = new Voter(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2], Input.get(1)[3]);
 //                Current.Identity = Input.get(i)[3];
 //                Current.Passphrase = Input.get(i)[2];
 //                Current.UserName = Input.get(i)[1];
@@ -312,7 +312,7 @@ public class JsonBasedVoting {
         ArrayList<Candidate> ReturnList = new ArrayList<Candidate>();
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x02")){
-                Candidate Current = new Candidate(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2]);
+                Candidate Current = new Candidate(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2], Input.get(1)[3]);
 //                Current.Identity = Input.get(i)[3];
 //                Current.Passphrase = Input.get(i)[2];
 //                Current.UserName = Input.get(i)[1];
@@ -329,7 +329,7 @@ public class JsonBasedVoting {
         ArrayList<Officer> ReturnList = new ArrayList<Officer>();
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x03")){
-                Officer Current = new Officer(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2]);
+                Officer Current = new Officer(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2], Input.get(1)[3]);
 //                Current.Identity = Input.get(i)[3];
 //                Current.Passphrase = Input.get(i)[2];
 //                Current.UserName = Input.get(i)[1];
@@ -520,12 +520,14 @@ class Voter {
     String Identity = "None";
     String UserName = "None";
     String Passphrase = "None";
+    String IDCard = "None";
     Boolean Voted = false;
     
-    public Voter(String IdentityIn, String UsernameIn, String PassphraseIn){
+    public Voter(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn){
         Identity = IdentityIn;
         UserName = UsernameIn;
         Passphrase = PassphraseIn;
+        IDCard = IDCardIn;
     }
 }
 
@@ -533,15 +535,15 @@ class Candidate extends Voter{
 //    String CandidateCity = "None";
 //    String CandidateParty = "None";
     int votecount = 0;
-    public Candidate(String IdentityIn, String UsernameIn, String PassphraseIn) {
-        super(IdentityIn, UsernameIn, PassphraseIn);
+    public Candidate(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn) {
+        super(IdentityIn, UsernameIn, PassphraseIn, IDCardIn);
     }
 
 }
 
 class Officer extends Voter{
 //    int OfficerVerificationID = 0;
-    public Officer(String IdentityIn, String UsernameIn, String PassphraseIn) {
-        super(IdentityIn, UsernameIn, PassphraseIn);
+    public Officer(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn) {
+        super(IdentityIn, UsernameIn, PassphraseIn, IDCardIn);
     }
 }
