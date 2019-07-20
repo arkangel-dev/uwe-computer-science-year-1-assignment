@@ -27,8 +27,6 @@ class Voter {
 }
 
 class Candidate extends Voter{
-//    String CandidateCity = "None";
-//    String CandidateParty = "None";
     int votecount = 0;
     public Candidate(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn) {
         super(IdentityIn, UsernameIn, PassphraseIn, IDCardIn);
@@ -37,7 +35,6 @@ class Candidate extends Voter{
 }
 
 class Officer extends Voter{
-//    int OfficerVerificationID = 0;
     public Officer(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn) {
         super(IdentityIn, UsernameIn, PassphraseIn, IDCardIn);
     }
