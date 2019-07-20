@@ -9,6 +9,43 @@ This is the first assignment for the UWE Bsc (Hons) Computer science first year 
 - Incremented the selection index
 - Added ID Card Field for Validation
 
+### Classes
+```java
+class Voter {
+    String Identity = "None";
+    String UserName = "None";
+    String Passphrase = "None";
+    String IDCard = "None";
+    Boolean Voted = false;
+    
+    public Voter(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn){
+        Identity = IdentityIn;
+        UserName = UsernameIn;
+        Passphrase = PassphraseIn;
+        IDCard = IDCardIn;
+    }
+}
+
+class Candidate extends Voter{
+//    String CandidateCity = "None";
+//    String CandidateParty = "None";
+    int votecount = 0;
+    public Candidate(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn) {
+        super(IdentityIn, UsernameIn, PassphraseIn, IDCardIn);
+    }
+
+}
+
+class Officer extends Voter{
+//    int OfficerVerificationID = 0;
+    public Officer(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn) {
+        super(IdentityIn, UsernameIn, PassphraseIn, IDCardIn);
+    }
+}
+```
+
+
+
 ## Restaurant Program
 ### Changes
 - Classes created
