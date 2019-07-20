@@ -3,13 +3,67 @@
 This is the first assignment for the UWE Bsc (Hons) Computer science first year project
 
 ## Voter Program
+### Changes
 - The voter program runs by storing the the data of the users and the candidate in text files that are comma delimited. And uses that for storing stuff. The bare bones are finshed now
 - The contructors have been added.
 - Incremented the selection index
 - Added ID Card Field for Validation
 
 ## Restaurant Program
+### Changes
 - Classes created
 - Dynamic dot spacers added (dope)
 - Ranged input
 - Input validating function (which could've really been implemented easily with a single simple regex)
+- Added javadocs to make documentation process easier
+- Added multiple classes to make the code more bearable to read
+- Added Sales class
+- Added email address field to Customer class
+
+
+### Classes
+```java
+class FoodItem {
+    String name = "None";
+    Double price = 0.0;
+    Double rating = 0.0;
+    Integer orderCount = 0;
+    
+    public FoodItem(String nameIn, Double priceIn, Double ratingIn, Integer orderCountIn){
+        name = nameIn;
+        price = priceIn;
+        rating = ratingIn;
+        orderCount = orderCountIn;
+    }
+}
+
+class Customer {
+    String id = "None";
+    String name = "None";
+    double averagespending = 0.00;
+    int visits = 0;
+    
+    public Customer(String idIn, String nameIn, Double averagespendingIn, Integer visitsIn){
+        id = idIn;
+        name = nameIn;
+        averagespending = averagespendingIn;
+        visits = visitsIn;
+    }
+}
+
+class Sale {
+    String saleId = "None";
+    double revenue = 0.0;
+    Date datetime = new Date();
+    String customername = "None";
+    String emailaddress = "None";
+    
+    public Sale(String saleIdIn, double revenueIn, Date datetimeIn, String customernameIn, String emailaddressIn){
+        saleId = saleIdIn;
+        revenue = revenueIn;
+        datetime = datetimeIn;
+        customername = customernameIn;
+        emailaddress = emailaddressIn;
+    }
+}
+```
