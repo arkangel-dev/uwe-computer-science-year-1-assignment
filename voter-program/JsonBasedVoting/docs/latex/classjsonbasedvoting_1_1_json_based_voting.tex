@@ -1,0 +1,448 @@
+\hypertarget{classjsonbasedvoting_1_1_json_based_voting}{}\section{jsonbasedvoting.\+Json\+Based\+Voting Class Reference}
+\label{classjsonbasedvoting_1_1_json_based_voting}\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a39d87f4c78499d4c595529d34b656f82}{main}} (String\mbox{[}$\,$\mbox{]} args)  throws I\+O\+Exception 
+\item 
+static final void \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a1d797d0d870297df5f50f56ab63fb7d8}{clear\+Console}} ()
+\item 
+static Voter \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a6f76956192c5ec8d7704c20bcc967d91}{classify\+Voters}} (Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$ Input)
+\item 
+static Candidate \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a09a09c0673c510a648d225136e4cf259}{classify\+Candidates}} (Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$ Input)
+\item 
+static Officer \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a8ae3b015105859acfa80cfcf3e481174}{classify\+Admins}} (Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$ Input)
+\item 
+static String \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a1bce9a2d9ca3518b754e4f4506826b7b}{get\+Random\+Hex\+String}} (int numchars)
+\item 
+static String \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_ac532552d0367e4f16155ea8bec904f88}{get\+Valid\+Input}} (String message, Integer min)
+\item 
+static void \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_ad2f672b45638c0a0767c01bf51c8098a}{Create\+User}} (String User\+Type\+Name, String Type\+Code\+In)
+\item 
+static void \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_ac203bbbbb46504b4239c28d595e1cdfc}{Delete\+User}} ()
+\item 
+static Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a6710604aec057cdca50e794f8f3faaee}{Remove\+Line\+By\+Match}} (Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$ Data, Integer Index, String Match)
+\item 
+static boolean \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a279df688d1148c7b6c9a60477ac5c268}{Write\+Line}} (Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$ Data)
+\item 
+static Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_acc4af3eab668970e61d34f68d4df8e2b}{Add\+User}} (String Type\+Code, String User\+Name, String Password, String User\+ID)
+\item 
+static boolean \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a894522ca8e7dce00b4b55f8db6b102fe}{Validate\+Login}} (String Username, String Password, String User\+Type)
+\item 
+static String \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a680b57ed482d3bb4b0427d7219712823}{get\+User\+Details}} (String username, Integer index\+Id, Integer return\+Id)
+\item 
+static Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_adbcb2c2a084932df90996c7199251579}{Load\+Data}} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Voter \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a50b66e1d5c92322631fc26d0d607172e}{voter\+List}} = \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a6f76956192c5ec8d7704c20bcc967d91}{classify\+Voters}}(Data)
+\item 
+static Candidate \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_aeb1c0154551e24a6fe24fc6b71576924}{candidate\+List}} = \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a09a09c0673c510a648d225136e4cf259}{classify\+Candidates}}(Data)
+\item 
+static Officer \mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a727f0bdc690e796c13428b4448be9456}{officer\+List}} = \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a8ae3b015105859acfa80cfcf3e481174}{classify\+Admins}}(Data)
+\item 
+static boolean \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_af94e2555dca7bed41989b965a179a769}{login\+Successful}} = false
+\item 
+static boolean \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a560cc9720f1a7101b2e1cbdf2bbe7b76}{still\+Voting}} = true
+\item 
+static int \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a94c8b3fcebf88d5a739c9bc869160087}{vote\+Count}} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Sam Ramirez 
+\end{DoxyAuthor}
+
+
+Definition at line 25 of file Json\+Based\+Voting.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_acc4af3eab668970e61d34f68d4df8e2b}\label{classjsonbasedvoting_1_1_json_based_voting_acc4af3eab668970e61d34f68d4df8e2b}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!AddUser@{AddUser}}
+\index{AddUser@{AddUser}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{AddUser()}{AddUser()}}
+{\footnotesize\ttfamily static Array\+List$<$String\mbox{[}$\,$\mbox{]}$>$ jsonbasedvoting.\+Json\+Based\+Voting.\+Add\+User (\begin{DoxyParamCaption}\item[{String}]{Type\+Code,  }\item[{String}]{User\+Name,  }\item[{String}]{Password,  }\item[{String}]{User\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_acc4af3eab668970e61d34f68d4df8e2b}{Add\+User()}} }
+
+What this function does is add a user to the Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$ Object that is provided in the parameters. and return that array\+List$<$$>$ object. 
+\begin{DoxyParams}{Parameters}
+{\em String} & Type\+Code The user type of the user (0x01, 0x02, 0x03) \\
+\hline
+{\em String} & User\+Name The username of the user \\
+\hline
+{\em String} & Password The password of the user \\
+\hline
+{\em String} & User\+ID The user\+ID of the user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 525 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a8ae3b015105859acfa80cfcf3e481174}\label{classjsonbasedvoting_1_1_json_based_voting_a8ae3b015105859acfa80cfcf3e481174}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!classifyAdmins@{classifyAdmins}}
+\index{classifyAdmins@{classifyAdmins}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{classifyAdmins()}{classifyAdmins()}}
+{\footnotesize\ttfamily static Officer \mbox{[}$\,$\mbox{]} jsonbasedvoting.\+Json\+Based\+Voting.\+classify\+Admins (\begin{DoxyParamCaption}\item[{Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$}]{Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a8ae3b015105859acfa80cfcf3e481174}{classify\+Admins()}} }
+
+What this function does is accept an Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$ and convert it to an Officer\mbox{[}\mbox{]} object. 
+\begin{DoxyParams}{Parameters}
+{\em Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$} & Input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Officer\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line 364 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a09a09c0673c510a648d225136e4cf259}\label{classjsonbasedvoting_1_1_json_based_voting_a09a09c0673c510a648d225136e4cf259}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!classifyCandidates@{classifyCandidates}}
+\index{classifyCandidates@{classifyCandidates}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{classifyCandidates()}{classifyCandidates()}}
+{\footnotesize\ttfamily static Candidate \mbox{[}$\,$\mbox{]} jsonbasedvoting.\+Json\+Based\+Voting.\+classify\+Candidates (\begin{DoxyParamCaption}\item[{Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$}]{Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{classify\+Candidate() }
+
+What this function does is accept an Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$ and convert it to a Candidate\mbox{[}\mbox{]} object. 
+\begin{DoxyParams}{Parameters}
+{\em Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$} & Input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Candiate\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line 341 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a6f76956192c5ec8d7704c20bcc967d91}\label{classjsonbasedvoting_1_1_json_based_voting_a6f76956192c5ec8d7704c20bcc967d91}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!classifyVoters@{classifyVoters}}
+\index{classifyVoters@{classifyVoters}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{classifyVoters()}{classifyVoters()}}
+{\footnotesize\ttfamily static Voter \mbox{[}$\,$\mbox{]} jsonbasedvoting.\+Json\+Based\+Voting.\+classify\+Voters (\begin{DoxyParamCaption}\item[{Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$}]{Input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a6f76956192c5ec8d7704c20bcc967d91}{classify\+Voters()}} }
+
+What this function does is accept an Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$ and convert it to a Voter\mbox{[}\mbox{]} object. 
+\begin{DoxyParams}{Parameters}
+{\em Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$} & Input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Voter\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line 312 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a1d797d0d870297df5f50f56ab63fb7d8}\label{classjsonbasedvoting_1_1_json_based_voting_a1d797d0d870297df5f50f56ab63fb7d8}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!clearConsole@{clearConsole}}
+\index{clearConsole@{clearConsole}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{clearConsole()}{clearConsole()}}
+{\footnotesize\ttfamily static final void jsonbasedvoting.\+Json\+Based\+Voting.\+clear\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a1d797d0d870297df5f50f56ab63fb7d8}{clear\+Console()}} }
+
+What this function does is clear the screen. 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 292 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_ad2f672b45638c0a0767c01bf51c8098a}\label{classjsonbasedvoting_1_1_json_based_voting_ad2f672b45638c0a0767c01bf51c8098a}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!CreateUser@{CreateUser}}
+\index{CreateUser@{CreateUser}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{CreateUser()}{CreateUser()}}
+{\footnotesize\ttfamily static void jsonbasedvoting.\+Json\+Based\+Voting.\+Create\+User (\begin{DoxyParamCaption}\item[{String}]{User\+Type\+Name,  }\item[{String}]{Type\+Code\+In }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_ad2f672b45638c0a0767c01bf51c8098a}{Create\+User()}} }
+
+What this function does is create a user and accept a string for the name a of the User\+Type\+Name and a Type\+Code that defines the type of user
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & User\+Type\+Name \\
+\hline
+{\em String} & Type\+Code\+In \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 435 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_ac203bbbbb46504b4239c28d595e1cdfc}\label{classjsonbasedvoting_1_1_json_based_voting_ac203bbbbb46504b4239c28d595e1cdfc}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!DeleteUser@{DeleteUser}}
+\index{DeleteUser@{DeleteUser}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{DeleteUser()}{DeleteUser()}}
+{\footnotesize\ttfamily static void jsonbasedvoting.\+Json\+Based\+Voting.\+Delete\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_ac203bbbbb46504b4239c28d595e1cdfc}{Delete\+User()}} }
+
+What this function is graphically delete a user from the arraylist object. 
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 453 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a1bce9a2d9ca3518b754e4f4506826b7b}\label{classjsonbasedvoting_1_1_json_based_voting_a1bce9a2d9ca3518b754e4f4506826b7b}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!getRandomHexString@{getRandomHexString}}
+\index{getRandomHexString@{getRandomHexString}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{getRandomHexString()}{getRandomHexString()}}
+{\footnotesize\ttfamily static String jsonbasedvoting.\+Json\+Based\+Voting.\+get\+Random\+Hex\+String (\begin{DoxyParamCaption}\item[{int}]{numchars }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+========================================================================================= ========================================================================================= \subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a1bce9a2d9ca3518b754e4f4506826b7b}{get\+Random\+Hex\+String()}} }
+
+What this function does is accept an integer and generate a random hex string with the length of the parameter provided 
+\begin{DoxyParams}{Parameters}
+{\em Intger} & numchars \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
+
+
+Definition at line 389 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a680b57ed482d3bb4b0427d7219712823}\label{classjsonbasedvoting_1_1_json_based_voting_a680b57ed482d3bb4b0427d7219712823}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!getUserDetails@{getUserDetails}}
+\index{getUserDetails@{getUserDetails}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{getUserDetails()}{getUserDetails()}}
+{\footnotesize\ttfamily static String jsonbasedvoting.\+Json\+Based\+Voting.\+get\+User\+Details (\begin{DoxyParamCaption}\item[{String}]{username,  }\item[{Integer}]{index\+Id,  }\item[{Integer}]{return\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a680b57ed482d3bb4b0427d7219712823}{get\+User\+Details()}} }
+
+What this function does is accept a testvalue, an testfield index and a return\+Id. So what it will do is use the \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_adbcb2c2a084932df90996c7199251579}{Load\+Data()}} function put the result in an array. Then it will go through the 1st dimension of the array and for each index in the 1st dimension, check if the test value matches the element value of current 1st dimension\textquotesingle{}s \textquotesingle{}testfield index\textquotesingle{}th value. If it matches, then return the value of the element whose index is defined by the return\+Id
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & username \\
+\hline
+{\em Integer} & index\+Id \\
+\hline
+{\em Integer} & return\+Id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
+
+
+Definition at line 574 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_ac532552d0367e4f16155ea8bec904f88}\label{classjsonbasedvoting_1_1_json_based_voting_ac532552d0367e4f16155ea8bec904f88}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!getValidInput@{getValidInput}}
+\index{getValidInput@{getValidInput}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{getValidInput()}{getValidInput()}}
+{\footnotesize\ttfamily static String jsonbasedvoting.\+Json\+Based\+Voting.\+get\+Valid\+Input (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{Integer}]{min }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_ac532552d0367e4f16155ea8bec904f88}{get\+Valid\+Input()}} }
+
+What this function does is lock the user in a loop until the data matches a certain criteria 
+\begin{DoxyParams}{Parameters}
+{\em String} & message \\
+\hline
+{\em Integer} & min \+: This defines the length of the string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
+
+
+Definition at line 407 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_adbcb2c2a084932df90996c7199251579}\label{classjsonbasedvoting_1_1_json_based_voting_adbcb2c2a084932df90996c7199251579}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!LoadData@{LoadData}}
+\index{LoadData@{LoadData}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{LoadData()}{LoadData()}}
+{\footnotesize\ttfamily static Array\+List$<$String\mbox{[}$\,$\mbox{]}$>$ jsonbasedvoting.\+Json\+Based\+Voting.\+Load\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_adbcb2c2a084932df90996c7199251579}{Load\+Data()}}}
+
+What this function does is load all of the lines into an array of strings. Then it will split each of those strings by the commas and put that string into a 2D array. Which is an Array\+List object. \begin{DoxyReturn}{Returns}
+Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 591 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a39d87f4c78499d4c595529d34b656f82}\label{classjsonbasedvoting_1_1_json_based_voting_a39d87f4c78499d4c595529d34b656f82}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!main@{main}}
+\index{main@{main}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void jsonbasedvoting.\+Json\+Based\+Voting.\+main (\begin{DoxyParamCaption}\item[{String \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & the command line arguments \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a6710604aec057cdca50e794f8f3faaee}\label{classjsonbasedvoting_1_1_json_based_voting_a6710604aec057cdca50e794f8f3faaee}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!RemoveLineByMatch@{RemoveLineByMatch}}
+\index{RemoveLineByMatch@{RemoveLineByMatch}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{RemoveLineByMatch()}{RemoveLineByMatch()}}
+{\footnotesize\ttfamily static Array\+List$<$String\mbox{[}$\,$\mbox{]}$>$ jsonbasedvoting.\+Json\+Based\+Voting.\+Remove\+Line\+By\+Match (\begin{DoxyParamCaption}\item[{Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$}]{Data,  }\item[{Integer}]{Index,  }\item[{String}]{Match }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{Remove\+Line\+By\+Math() }
+
+What this function does is accept an arraylist and remove a line from the Arrat\+List based on a match from the String M\+Atch from the Index provided in the variable index. 
+\begin{DoxyParams}{Parameters}
+{\em Array\+List$<$\+String\mbox{[}$\,$\mbox{]}$>$} & Data \\
+\hline
+{\em String} & Index \\
+\hline
+{\em String} & Match \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 471 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a894522ca8e7dce00b4b55f8db6b102fe}\label{classjsonbasedvoting_1_1_json_based_voting_a894522ca8e7dce00b4b55f8db6b102fe}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!ValidateLogin@{ValidateLogin}}
+\index{ValidateLogin@{ValidateLogin}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{ValidateLogin()}{ValidateLogin()}}
+{\footnotesize\ttfamily static boolean jsonbasedvoting.\+Json\+Based\+Voting.\+Validate\+Login (\begin{DoxyParamCaption}\item[{String}]{Username,  }\item[{String}]{Password,  }\item[{String}]{User\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a894522ca8e7dce00b4b55f8db6b102fe}{Validate\+Login()}} }
+
+So what this function will do is accept a username and a password and user type (which is a string). Then it will invoke the \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_adbcb2c2a084932df90996c7199251579}{Load\+Data()}} function and store the values in an array. Then it parse through the array and try to see if there is an entry that matches the username, password and usertype id. If it finds one it will return boolean true. If it does not find one it will return false. This function will be used for login validation. Now that I think about it would\textquotesingle{}ve been easier to just put this function in the class objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & Username \\
+\hline
+{\em String} & Password \\
+\hline
+{\em String} & Usertype \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean 
+\end{DoxyReturn}
+
+
+Definition at line 545 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a279df688d1148c7b6c9a60477ac5c268}\label{classjsonbasedvoting_1_1_json_based_voting_a279df688d1148c7b6c9a60477ac5c268}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!WriteLine@{WriteLine}}
+\index{WriteLine@{WriteLine}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{WriteLine()}{WriteLine()}}
+{\footnotesize\ttfamily static boolean jsonbasedvoting.\+Json\+Based\+Voting.\+Write\+Line (\begin{DoxyParamCaption}\item[{Array\+List$<$ String\mbox{[}$\,$\mbox{]}$>$}]{Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\subsection*{\mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a279df688d1148c7b6c9a60477ac5c268}{Write\+Line()}} }
+
+What this function does is make is accept an array\+List object and save the data to the data.\+txt file. 
+\begin{DoxyParams}{Parameters}
+{\em Array} & Data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 495 of file Json\+Based\+Voting.\+java.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_aeb1c0154551e24a6fe24fc6b71576924}\label{classjsonbasedvoting_1_1_json_based_voting_aeb1c0154551e24a6fe24fc6b71576924}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!candidateList@{candidateList}}
+\index{candidateList@{candidateList}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{candidateList}{candidateList}}
+{\footnotesize\ttfamily Candidate \mbox{[}$\,$\mbox{]} jsonbasedvoting.\+Json\+Based\+Voting.\+candidate\+List = \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a09a09c0673c510a648d225136e4cf259}{classify\+Candidates}}(Data)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 104 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_af94e2555dca7bed41989b965a179a769}\label{classjsonbasedvoting_1_1_json_based_voting_af94e2555dca7bed41989b965a179a769}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!loginSuccessful@{loginSuccessful}}
+\index{loginSuccessful@{loginSuccessful}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{loginSuccessful}{loginSuccessful}}
+{\footnotesize\ttfamily boolean jsonbasedvoting.\+Json\+Based\+Voting.\+login\+Successful = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 106 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a727f0bdc690e796c13428b4448be9456}\label{classjsonbasedvoting_1_1_json_based_voting_a727f0bdc690e796c13428b4448be9456}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!officerList@{officerList}}
+\index{officerList@{officerList}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{officerList}{officerList}}
+{\footnotesize\ttfamily Officer \mbox{[}$\,$\mbox{]} jsonbasedvoting.\+Json\+Based\+Voting.\+officer\+List = \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a8ae3b015105859acfa80cfcf3e481174}{classify\+Admins}}(Data)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 105 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a560cc9720f1a7101b2e1cbdf2bbe7b76}\label{classjsonbasedvoting_1_1_json_based_voting_a560cc9720f1a7101b2e1cbdf2bbe7b76}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!stillVoting@{stillVoting}}
+\index{stillVoting@{stillVoting}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{stillVoting}{stillVoting}}
+{\footnotesize\ttfamily boolean jsonbasedvoting.\+Json\+Based\+Voting.\+still\+Voting = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 107 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a94c8b3fcebf88d5a739c9bc869160087}\label{classjsonbasedvoting_1_1_json_based_voting_a94c8b3fcebf88d5a739c9bc869160087}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!voteCount@{voteCount}}
+\index{voteCount@{voteCount}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{voteCount}{voteCount}}
+{\footnotesize\ttfamily int jsonbasedvoting.\+Json\+Based\+Voting.\+vote\+Count = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 108 of file Json\+Based\+Voting.\+java.
+
+\mbox{\Hypertarget{classjsonbasedvoting_1_1_json_based_voting_a50b66e1d5c92322631fc26d0d607172e}\label{classjsonbasedvoting_1_1_json_based_voting_a50b66e1d5c92322631fc26d0d607172e}} 
+\index{jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}!voterList@{voterList}}
+\index{voterList@{voterList}!jsonbasedvoting.JsonBasedVoting@{jsonbasedvoting.JsonBasedVoting}}
+\subsubsection{\texorpdfstring{voterList}{voterList}}
+{\footnotesize\ttfamily Voter \mbox{[}$\,$\mbox{]} jsonbasedvoting.\+Json\+Based\+Voting.\+voter\+List = \mbox{\hyperlink{classjsonbasedvoting_1_1_json_based_voting_a6f76956192c5ec8d7704c20bcc967d91}{classify\+Voters}}(Data)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 103 of file Json\+Based\+Voting.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+College/\+Assignments/college-\/semester-\/2-\/project (\+O\+O\+S\+D)/uwe-\/computer-\/science-\/year-\/1-\/assignment/voter-\/program/\+Json\+Based\+Voting/src/jsonbasedvoting/\mbox{\hyperlink{_json_based_voting_8java}{Json\+Based\+Voting.\+java}}\end{DoxyCompactItemize}
