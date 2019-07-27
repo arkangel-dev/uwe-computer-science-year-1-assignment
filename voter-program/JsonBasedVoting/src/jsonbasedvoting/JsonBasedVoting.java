@@ -67,23 +67,23 @@ public class JsonBasedVoting {
                 System.out.println("--------------------");
                 System.out.println("");
                 System.out.println("[1]\t\tAdd Voter");
-                System.out.println("[2]\t\tAdd Candidate");
-                System.out.println("[3]\t\tAdd Officer");
-                System.out.println("[4]\t\tRemove User");
-                System.out.println("[5]\t\tStart Vote");
+                // System.out.println("[2]\t\tAdd Candidate");
+                System.out.println("[2]\t\tAdd Officer");
+                System.out.println("[3]\t\tRemove User");
+                System.out.println("[4]\t\tStart Vote");
                 System.out.println("");
                 System.out.println("[+] Enter a choice : ");
                 String choice = VariableInput.nextLine();
                 
                 if (choice.equals("1")){
                     CreateUser("voter", "0x01");
-                } else if (choice.equals("2")){
+                } else if (choice.equals("locked-function-0x352")){
                     CreateUser("candidate", "0x02");
-                } else if (choice.equals("3")){
+                } else if (choice.equals("2")){
                     CreateUser("officer", "0x03");
-                } else if (choice.equals("4")){
+                } else if (choice.equals("3")){
                     DeleteUser();
-                } else if (choice.equals("5")){
+                } else if (choice.equals("4")){
                     clearConsole();
                     StartVote();
                 } else {
