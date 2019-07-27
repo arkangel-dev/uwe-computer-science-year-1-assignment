@@ -98,18 +98,29 @@ public class JsonBasedVoting {
             }
         }
     }
-    
-    static ArrayList<String[]> Data = LoadData();
-    public static Voter[] voterList = classifyVoters(Data);
-    public static Candidate[] candidateList = classifyCandidates(Data);
-    public static Officer[] officerList = classifyAdmins(Data);
-    public static boolean loginSuccessful = false;
-    public static boolean stillVoting = true;
+	
+	/** This variable stores the return object of the function LoadData() and store it. */
+	static ArrayList<String[]> Data = LoadData();
+	/** This variable stores the return object of the function classifyVoters(). */
+	public static Voter[] voterList = classifyVoters(Data);
+	/** This variable stores the return object of the function classifyCandidates(). */
+	public static Candidate[] candidateList = classifyCandidates(Data);
+	/** This variable stores the return object of the function classifyAdmins(). */
+	public static Officer[] officerList = classifyAdmins(Data);
+	/** This variable will store the boolean value whether or not the previous login was successful */
+	public static boolean loginSuccessful = false;
+	/** This variable will determine whether or the system will be locked in a loop that will prompt the users to login and vote */
+	public static boolean stillVoting = true;
+	/** This variable will store how many users have voted so far in the system. This information will be used to determine when the system will exit out of the loop automatically by setting the stillVoting variable to False */
     public static int voteCount = 0;
-    
+	
+	/**
+	 * So this is the functiion that will loop undefietly untill the system completes voting...
+	 * <br>
+	 * Ok so now we are going to validate the login credentials... But we cannot use the ValidateLogin() function because, again stupid Javas design doesn't allow us to get the class object index... Stupid Java
+	 */
     static void StartVote() {
-        // So this is the functiion that will loop undefietly untill
-		// the system completes voting...
+
 		int totalVoters = voterList.length + candidateList.length + officerList.length;
         
         while (stillVoting){
@@ -123,11 +134,11 @@ public class JsonBasedVoting {
             System.out.println("[+] Validating login...");
             
             
-//            /**
+//            /
 //             Ok so now we are going to validate the login credentials... But we cannot
 //             use the ValidateLogin() function because, again stupid Javas design doesn't
 //             allow us to get the class object index... Stupid Java
-//             **/
+//             
             
             for (int i = 0; i < voterList.length; i++){
                 if (voterList[i].Identity.equals(AttemptedUsername) & voterList[i].Passphrase.equals(AttemptedPassword)){
@@ -177,7 +188,11 @@ public class JsonBasedVoting {
 
 		exit(0);
     }
-    
+	
+	/**
+	 * So what this function does is print out 300 lines that are blank until the terminal pushes the previous lines out of the buffer.
+	 * Right now it is only called by the clearConsole() function.
+	 */
     static void LotsOfLines(){
 		// what this function does is print a lot of
 		// lines until the previous data is scrolled
@@ -186,7 +201,12 @@ public class JsonBasedVoting {
 			System.out.println("");
 		}
     }
-    
+	
+	/**
+	 * What this function does is accept a two paramters. The first string basically tells us which class array to use for this user. The second paramter tells us which element of the array we should select. So basically the first string tells whether the user is an officer, voter or a candidate. The second parameter tells us which one of those to select it. Aaand Im repeating my self... That's not a good sign... Wait... Im trying what Im thinking. That's bad
+	 * @param String userType
+	 * @param Integer index
+	 */
     static void showMenu(String userType, Integer index){
         System.out.println("");
         if (userType.equals("0x01")){
@@ -248,6 +268,12 @@ public class JsonBasedVoting {
         System.out.println("");
 	}
 
+	/**
+	 * What this function does if return a boolean value based on whether or not the two provided values match.
+	 * @param String message
+	 * @param String matchString
+	 * @return Boolean
+	 */
 	static boolean matchInputBool(String message, String matchString){
 		System.out.println(message);
 		Scanner VariableInput = new Scanner(System.in);
@@ -260,7 +286,6 @@ public class JsonBasedVoting {
 	}
 	
 	/**
-	 * <h1> rangedInput() </h1>
 	 * What this function does is lock the user a loop untill they enter an integer that is within the range of the parameters provided. And if the input is within the range then return the integer.
 	 * @param Integer min
 	 * @param Integer max
@@ -284,10 +309,7 @@ public class JsonBasedVoting {
 	}
 
 	/**
-	 * <h1> clearConsole() </h1>
 	 * What this function does is clear the screen.
-	 * @param None
-	 * @param None
 	 */
 	public final static void clearConsole() {
             try {
@@ -304,7 +326,6 @@ public class JsonBasedVoting {
 	}
 	
 	/**
-	 * <h1> classifyVoters() </h1>
 	 * What this function does is accept an ArrayList<String[]> and convert it to a Voter[] object.
 	 * @param ArrayList<String[]> Input
 	 * @return Voter[]
@@ -319,9 +340,6 @@ public class JsonBasedVoting {
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x01")){
                 Voter Current = new Voter(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2], Input.get(1)[3]);
-//                Current.Identity = Input.get(i)[3];
-//                Current.Passphrase = Input.get(i)[2];
-//                Current.UserName = Input.get(i)[1];
                 ReturnList.add(Current);
             }
         }
@@ -333,7 +351,6 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * <h1> classifyCandidate() </h1>
 	 * What this function does is accept an ArrayList<String[]> and convert it to a Candidate[] object.
 	 * @param ArrayList<String[]> Input
 	 * @return Candiate[]
@@ -343,9 +360,6 @@ public class JsonBasedVoting {
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x02")){
                 Candidate Current = new Candidate(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2], Input.get(1)[3]);
-//                Current.Identity = Input.get(i)[3];
-//                Current.Passphrase = Input.get(i)[2];
-//                Current.UserName = Input.get(i)[1];
                 ReturnList.add(Current);
             }
         }
@@ -356,7 +370,6 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * <h1> classifyAdmins() </h1>
 	 * What this function does is accept an ArrayList<String[]> and convert it to an Officer[] object.
 	 * @param ArrayList<String[]> Input
 	 * @return Officer[]
@@ -366,9 +379,6 @@ public class JsonBasedVoting {
         for (int i = 0; i < Input.size(); i++){
             if (Input.get(i)[0].equals("0x03")){
                 Officer Current = new Officer(Input.get(i)[3], Input.get(i)[1], Input.get(i)[2], Input.get(1)[3]);
-//                Current.Identity = Input.get(i)[3];
-//                Current.Passphrase = Input.get(i)[2];
-//                Current.UserName = Input.get(i)[1];
                 ReturnList.add(Current);
             }
         }
@@ -377,11 +387,8 @@ public class JsonBasedVoting {
             FinalSpace[i] = ReturnList.get(i);}
         return(FinalSpace);
     }
-    /** ========================================================================================= **/
-    /** ========================================================================================= **/
-	
+  
 	/**
-	 * <h1> getRandomHexString() </h1>
 	 * What this function does is accept an integer and generate a random hex string with the length of the parameter provided
 	 * @param Intger numchars
 	 * @return String
@@ -398,7 +405,6 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * <h1> getValidInput() </h1>
 	 * What this function does is lock the user in a loop until the data matches a certain criteria
 	 * @param String message 
 	 * @param Integer min : This defines the length of the string
@@ -425,7 +431,6 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * <h1> CreateUser() </h1>
 	 * What this function does is create a user and accept a string for the name a of the UserTypeName and a TypeCode that defines the type of user
 	 * 
 	 * @param String UserTypeName
@@ -439,13 +444,13 @@ public class JsonBasedVoting {
         String TypeCode = TypeCodeIn;
         String UserID = getRandomHexString(8);
         String VoterName = getValidInput("\nEnter " + UserTypeName + " full name : ", 8);
-        String UserPass = getValidInput("\nEnter a password", 8);
-        WriteLine(AddUser(TypeCode, VoterName, UserPass, UserID));
+		String UserPass = getValidInput("\nEnter a password", 8);
+		String IDCard = getValidInput("\nEnter ID Card Number", 4);
+        WriteLine(AddUser(TypeCode, VoterName, UserPass, UserID, IDCard));
         System.out.println("\nA " + UserTypeName + " has been added with a user ID of " + UserID+"\n");
     }
 	
 	/**
-	 * <h1> DeleteUser() </h1>
 	 * What this function is graphically delete a user from the arraylist object. 
 	 * @param None
 	 * @return None
@@ -461,7 +466,6 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * <h1> RemoveLineByMath() </h1>
 	 * What this function does is accept an arraylist and remove a line from the ArratList based on a match from the String MAtch from the Index provided in the variable index.
 	 * @param ArrayList<String[]> Data
 	 * @param String Index
@@ -487,7 +491,6 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * <h1> WriteLine() </h1>
 	 * What this function does is make is accept an arrayList object and save the data to the data.txt file.
 	 * @param Array Data
 	 * @return
@@ -501,7 +504,7 @@ public class JsonBasedVoting {
             PrintWriter pw = new PrintWriter(new FileWriter("data.txt"));
             for (int i = 0; i < Data.size(); i++) {
                     String[] CurrentUser = Data.get(i);
-                    pw.write(CurrentUser[0]+","+CurrentUser[1]+","+CurrentUser[2]+","+CurrentUser[3]+"\n");
+                    pw.write(CurrentUser[0]+","+CurrentUser[1]+","+CurrentUser[2]+","+CurrentUser[3]+","+CurrentUser[4] + "\n");
             }
             // close the files.
             pw.close();
@@ -514,7 +517,6 @@ public class JsonBasedVoting {
 	
 	
 	/**
-	 * <h1> AddUser() </h1>
 	 * What this function does is add a user to the ArrayList<String[]> Object that is provided in the parameters. and return that arrayList<> object.
 	 * @param String TypeCode The user type of the user (0x01, 0x02, 0x03)
 	 * @param String UserName The username of the user
@@ -522,18 +524,17 @@ public class JsonBasedVoting {
 	 * @param String UserID The userID of the user
 	 * @return ArrayList<String[]>
 	 */
-    public static ArrayList<String[]> AddUser(String TypeCode, String UserName, String Password, String UserID){
+    public static ArrayList<String[]> AddUser(String TypeCode, String UserName, String Password, String UserID, String IDCard){
         // So what this function does is add a user to the arraylist data from
         // the file and add lines according to the parameters provided
         ArrayList<String[]> Data = LoadData();
-        String[] DataLine = {TypeCode, UserName, Password, UserID};
+        String[] DataLine = {TypeCode, UserName, Password, UserID, IDCard};
         Data.add(DataLine);
         return(Data);
     }
 	
 	
 	/**
-	 * <h1> ValidateLogin() </h1>
 	 * So what this function will do is accept a username and a password and user type (which is a string). Then it will invoke the LoadData() function and store the values in an array. Then it parse through the array and try to see if there is an entry that matches the username, password and usertype id. If it finds one it will return boolean true. If it does not find one it will return false. 
 	 * This function will be used for login validation. Now that I think about it would've been easier to just put this function in the class objects.
 	 * 
@@ -563,7 +564,6 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * <h1> getUserDetails() </h1>
 	 * What this function does is accept a testvalue, an testfield index and a returnId. So what it will do is use the LoadData() function put the result in an array. Then it will go through the 1st dimension of the array and for each index in the 1st dimension, check if the test value matches the element value of current 1st dimension's 'testfield index'th value. If it matches, then return the value of the element whose index is defined by the returnId
 	 * 
 	 * @param String username
@@ -584,7 +584,6 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * <h1>LoadData()</h1>
 	 * What this function does is load all of the lines into an array of strings. Then it will split each of those strings by the commas and put that string into a 2D array. Which is an ArrayList object.
 	 * @return ArrayList<String[]>
 	 */
@@ -630,7 +629,6 @@ public class JsonBasedVoting {
 }
 
 /**
- * <h1> Voter Class </h1>
  * This is the voter class.
  * This class is the parent class to the other classes and they inherit this class's attribute such as Identity, password, username and the Voted Boolean variable. The voted boolean variable determins if the user has voted or not
  * <br>
@@ -645,12 +643,18 @@ public class JsonBasedVoting {
  * </ul>
  */
 class Voter {
-    String Identity = "None";
-    String UserName = "None";
-    String Passphrase = "None";
-    String IDCard = "None";
+	/** This String will store the Name of the user */
+	String Identity = "None";
+	/** This string will store the username of the user */
+	String UserName = "None";
+	/** This string will store the password of the user */
+	String Passphrase = "None";
+	/** This String will store the ID Card number of the user */
+	String IDCard = "None";
+	/** This boolean will determine if the user has voted or not. */
     Boolean Voted = false;
-    
+	
+	/** This is the contructor for the Voter class. Idk much about constructors. And there is nothing special about them.*/
     public Voter(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn){
         Identity = IdentityIn;
         UserName = UsernameIn;
@@ -660,7 +664,6 @@ class Voter {
 }
 
 /**
- * <h1> Candidate Class </h1>
  * This is the Candiate class.
  * This class contails the data of the candaidates. An attribute that is not inherited from the Voter class is the vote count attribute that contains how many votes the candidate has.
  * <br>
@@ -673,9 +676,14 @@ class Voter {
  * </ul>
  */
 class Candidate extends Voter{
+	/** This string variable store the city the candidate is originally from. */
 	String CandidateCity = "None";
+	/** This string variable stores the part the candidate represents. */
 	String CandidateParty = "None";
-    int votecount = 0;
+	/** This integer variable stores the number of votes this candidate has gotten.*/
+	int votecount = 0;
+	
+	/** This is the contructor for the candidate object. This class is inherits the attriubtes from the Voter class.*/
     public Candidate(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn) {
         super(IdentityIn, UsernameIn, PassphraseIn, IDCardIn);
     }
@@ -683,7 +691,6 @@ class Candidate extends Voter{
 }
 
 /**
- * <h1> Officer Class </h1>
  * This class is the officer class.
  * This class will contain all the data of the officer. It is extended to the Voter class so the Officer objects will also get to vote. This class has no special functions or variables since the system relies on user type to identify and authorise Officers.
  * 

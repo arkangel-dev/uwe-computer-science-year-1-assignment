@@ -8,3 +8,4 @@
 0x02,Leslie Knope,123,123,A1007
 0x02,Barack Barry Obama,123,123,A1008
 0x02,Chewing Gum Watterson,12345678,GumballW,A1009
+0x01,Elon Musk,abcdefghijk,a5178f47,A1003043

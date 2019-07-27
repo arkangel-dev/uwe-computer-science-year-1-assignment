@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['removelinebymatch',['RemoveLineByMatch',['../classjsonbasedvoting_1_1_json_based_voting.html#a6710604aec057cdca50e794f8f3faaee',1,'jsonbasedvoting::JsonBasedVoting']]]
+  ['officer',['Officer',['../classjsonbasedvoting_1_1_officer.html#acdff517e349bf16a8e89f28ccefd3166',1,'jsonbasedvoting::Officer']]]
 ];

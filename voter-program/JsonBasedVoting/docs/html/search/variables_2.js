@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['officerlist',['officerList',['../classjsonbasedvoting_1_1_json_based_voting.html#a727f0bdc690e796c13428b4448be9456',1,'jsonbasedvoting::JsonBasedVoting']]]
+  ['idcard',['IDCard',['../classjsonbasedvoting_1_1_voter.html#a3b7931f933d5742d73e2c362937de240',1,'jsonbasedvoting::Voter']]],
+  ['identity',['Identity',['../classjsonbasedvoting_1_1_voter.html#a52bcd2c36e61a6230e7e37988243214d',1,'jsonbasedvoting::Voter']]]
 ];
