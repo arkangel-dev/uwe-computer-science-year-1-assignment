@@ -40,37 +40,42 @@ public class JsonBasedVoting {
         Scanner VariableInput = new Scanner(System.in);
         while(true){
 
-            
+            System.out.println("WELCOME TO THE 2019 ELECTIONS!");
+            System.out.println("Please sign in using your assigned username and password");
+            System.out.println("----------------------------------------------------------");
+
             // so no shit.. enter the username
             // because... reasons
-            System.out.println("[!] Enter Username : ");
+            System.out.println("\n[!] Enter Username : ");
             String UsernameAttempt = VariableInput.nextLine();
             
             // enter the password...
-            System.out.println("[!] Enter Password : ");
+            System.out.println("\n[!] Enter Password : ");
             String PasswordAtttempt = VariableInput.nextLine();
             boolean LoginValid = ValidateLogin(UsernameAttempt, PasswordAtttempt, "0x03");
             
             // now we are going to print the validation
             // if the system is correct
             if (LoginValid){ 
-                System.out.println("[+] Login Accepted!");
+                System.out.println("\n[+] Login Accepted!");
             } else { 
-                System.out.println("[-] Login Declined!");
+                System.out.println("\n[-] Login Declined!\n");
+		System.out.println("Your Username and/or Password is incorrect");
+                System.out.println("Please contact your supervisor for assistance or try again");
             }
             System.out.println("");
             
             // enter an infinite loop...
             while(LoginValid){
-                System.out.println("Welcome to main menu");
-                System.out.println("Log in as : " + getUserDetails(UsernameAttempt, 3, 1));
+                System.out.println("Welcome to the main menu");
+                System.out.println("Logged in as : " + getUserDetails(UsernameAttempt, 3, 1));
                 System.out.println("--------------------");
                 System.out.println("");
-                System.out.println("[1]\t\tAdd Voter");
-                // System.out.println("[2]\t\tAdd Candidate");
-                System.out.println("[2]\t\tAdd Officer");
-                System.out.println("[3]\t\tRemove User");
-                System.out.println("[4]\t\tStart Vote");
+                System.out.println("[1]\tAdd Voter");
+                System.out.println("[2]\tAdd Candidate");
+                System.out.println("[3]\tAdd Officer");
+                System.out.println("[4]\tRemove User");
+                System.out.println("[5]\tStart Vote");
                 System.out.println("");
                 System.out.println("[+] Enter a choice : ");
                 String choice = VariableInput.nextLine();
@@ -199,7 +204,7 @@ public class JsonBasedVoting {
 				voterList[index].Voted = true;
 				// *****************************************************
             } else {
-                System.out.println("You have already voted. Go away.");
+                System.out.println("You have already voted. Please leave.");
             }
         } else if (userType.equals("0x02")) {
 			System.out.println("Welcome candidate " + candidateList[index].UserName);
@@ -381,10 +386,10 @@ public class JsonBasedVoting {
         // user
         String TypeCode = TypeCodeIn;
         String UserID = getRandomHexString(8);
-        String VoterName = getValidInput("Enter " + UserTypeName + " full name : ", 8);
-        String UserPass = getValidInput("Enter a password", 8);
+        String VoterName = getValidInput("\nEnter " + UserTypeName + " full name : ", 8);
+        String UserPass = getValidInput("\nEnter a password", 8);
         WriteLine(AddUser(TypeCode, VoterName, UserPass, UserID));
-        System.out.println("A " + UserTypeName + " has been added with user ID of " + UserID);
+        System.out.println("\nA " + UserTypeName + " has been added with a user ID of " + UserID+"\n");
     }
     
     static void DeleteUser(){
