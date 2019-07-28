@@ -53,6 +53,8 @@ class Officer extends Voter{
 - Added multiple classes to make the code more bearable to read
 - Added Sales class
 - Added email address field to Customer class
+- Added email notifcation
+- Fixed stupidity
 
 
 ### Classes
