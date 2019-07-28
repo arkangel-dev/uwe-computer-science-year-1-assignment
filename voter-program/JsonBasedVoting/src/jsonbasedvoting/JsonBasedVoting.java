@@ -31,16 +31,10 @@ public class JsonBasedVoting {
 //        ArrayList<String[]> DataDoo = LoadData();
 //        WriteLine(AddUser("0x02", "Mohamed Isaam Rameez", "adbcd", "U0001"));
 //        WriteLine(RemoveLineByMatch(DataDoo, 0, "0x02"));
-
-        System.out.println("Non JSON Voting System.");
-        System.out.println("Version: 0.0.0");
-        System.out.println("-----------------------");
-        System.out.println("");
-
         Scanner VariableInput = new Scanner(System.in);
         while(true){
 
-            System.out.println("WELCOME TO THE 2019 ELECTIONS!");
+            System.out.println("\nWELCOME TO THE 2019 ELECTIONS!");
             System.out.println("Please sign in using your assigned username and password");
             System.out.println("----------------------------------------------------------");
 
@@ -127,11 +121,11 @@ public class JsonBasedVoting {
             if (totalVoters <= voteCount){
                 stillVoting = false;
             }
-            System.out.println("[+] Welcome to the voting center.");
-            System.out.println("[+] Please enter your credentials.");
-            String AttemptedUsername = getValidInput("[+] Enter a username : ", 8);
-            String AttemptedPassword = getValidInput("[+] Enter a password : ", 8);
-            System.out.println("[+] Validating login...");
+            System.out.println("WELCOME TO THE 2019 ELECTIONS!");
+            System.out.println("Please enter your credentials");
+            String AttemptedUsername = getValidInput("\n[+] Enter a username : ", 8);
+            String AttemptedPassword = getValidInput("\n[+] Enter a password : ", 8);
+            System.out.println("\n[+] Validating login...");
             
             
 //            /
@@ -218,7 +212,7 @@ public class JsonBasedVoting {
 					System.out.println("\t\t" + (i + 1) + "." + candidateList[i].UserName);
 				}
 				System.out.println("");
-				System.out.println("Please make a selection.");
+				System.out.println("Please choose a candidate : ");
 				int selectedIndex = rangedInput(1, candidateList.length);
 				candidateList[selectedIndex - 1].votecount ++;
 				voterList[index].Voted = true;
@@ -228,9 +222,9 @@ public class JsonBasedVoting {
             }
         } else if (userType.equals("0x02")) {
 			System.out.println("Welcome candidate " + candidateList[index].UserName);
-			System.out.println("You have " + candidateList[index].votecount + " votes.");
+			System.out.println("You currently have " + candidateList[index].votecount + " votes.\n");
 			if (!candidateList[index].Voted){
-				System.out.println("Seems like you haven't voted yet. So please make a selection.");
+				System.out.println("Seems like you haven't voted yet. So please make a selection.\n");
 				// *****************************************************
 				for (int i = 0; i < candidateList.length; i++){
 					System.out.println("\t\t" + (i + 1) + "." + candidateList[i].UserName);
@@ -245,10 +239,10 @@ public class JsonBasedVoting {
 				System.out.println("You have already voted.");
 			}
 		} else if (userType.equals("0x03")){
-			System.out.println("<< Admin Usage >>");
+			System.out.println("Welcome officer " + officerList[index].UserName);
 
 			if (!officerList[index].Voted){
-				System.out.println("Seems like you haven't voted.");
+				System.out.println("Seems like you haven't voted yet. So please make a selection.\n");
 				// *****************************************************
 				for (int i = 0; i < candidateList.length; i++){
 					System.out.println("\t\t" + (i + 1) + "." + candidateList[i].UserName);
@@ -259,9 +253,11 @@ public class JsonBasedVoting {
 				candidateList[selectedIndex - 1].votecount ++;
 				officerList[index].Voted = true;
 				// *****************************************************
-			}
+			} else {
+                            System.out.println("You have already voted.\n");
+                        }
 
-			if (matchInputBool("Type in END to end the vote", "END")){
+			if (matchInputBool("Please type in END to end the voting process or DONE if you would like to exit", "END")){
 				stillVoting = false;
 			}
 		}
@@ -458,11 +454,11 @@ public class JsonBasedVoting {
     public static void DeleteUser(){
         // this function deletes the user 
         Scanner VariableInput = new Scanner(System.in);
-        System.out.println("Enter the user id you'd like to delete :");
+        System.out.println("\nEnter the user ID you'd like to delete :");
         String UserID = VariableInput.nextLine();
         ArrayList<String[]> data = LoadData();
         WriteLine(RemoveLineByMatch(data, 3, UserID));
-        System.out.println("User has been removed");
+        System.out.println("User has been removed\n");
     }
 	
 	/**
@@ -482,7 +478,7 @@ public class JsonBasedVoting {
             // lines until we find one that matches all the
             // requirements and remove it
             if (Data.get(i)[Index].equals(Match)){
-                System.out.println("Removing matching line...");
+                System.out.println("\nRemoving matching line...");
                 Data.remove(i);
                 return(Data);
             }
