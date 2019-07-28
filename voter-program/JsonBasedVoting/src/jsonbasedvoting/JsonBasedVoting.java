@@ -389,7 +389,7 @@ public class JsonBasedVoting {
     }
   
 	/**
-	 * What this function does is accept an integer and generate a random hex string with the length of the parameter provided
+	 * What this function does is accept an integer and generate a random hex string with the length of the parameter provided. It is used for generating usernames.
 	 * @param Intger numchars
 	 * @return String
 	 */
@@ -405,7 +405,7 @@ public class JsonBasedVoting {
     }
 	
 	/**
-	 * What this function does is lock the user in a loop until the data matches a certain criteria
+	 * What this function does is lock the user in a loop until the data matches a certain criteria. In this case if the input contains a comma or does not exceed the min parameter in terms of string length. It will not be accepted.
 	 * @param String message 
 	 * @param Integer min : This defines the length of the string
 	 * @return String
