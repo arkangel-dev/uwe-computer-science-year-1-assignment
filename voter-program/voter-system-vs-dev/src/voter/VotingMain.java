@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import static java.lang.System.exit;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -215,7 +216,11 @@ public class VotingMain {
 				// *****************************************************
             } else {
                 System.out.println("You have already voted. Please leave.");
-            }
+			}
+			try {
+			System.out.println("[ Screen Will Clear In 5 Seconds]");
+			TimeUnit.SECONDS.sleep(5);
+			} catch (InterruptedException e){}
         } else if (userType.equals("0x02")) {
 			System.out.println("Welcome candidate " + candidateList[index].UserName);
 			System.out.println("You currently have " + candidateList[index].votecount + " votes.\n");
@@ -234,6 +239,10 @@ public class VotingMain {
 			} else {
 				System.out.println("You have already voted.");
 			}
+			try {
+				System.out.println("[ Screen Will Clear In 5 Seconds]");
+				TimeUnit.SECONDS.sleep(5);
+				} catch (InterruptedException e){}
 		} else if (userType.equals("0x03")){
 			System.out.println("Welcome officer " + officerList[index].UserName);
 
@@ -255,6 +264,10 @@ public class VotingMain {
 			if (matchInputBool("Please type in END to end the voting process or DONE if you would like to exit", "END")){
 				stillVoting = false;
 			}
+			try {
+				System.out.println("[ Screen Will Clear In 5 Seconds]");
+				TimeUnit.SECONDS.sleep(5);
+				} catch (InterruptedException e){}
 		}
         System.out.println("");
 	}
