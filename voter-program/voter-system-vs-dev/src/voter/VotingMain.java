@@ -187,8 +187,6 @@ public class VotingMain {
 		} else {
 			System.out.println("Candidate " + candidateList[greatestIndex].UserName + " has won with " + candidateList[greatestIndex].votecount + " votes.");
 		}
-
-
 		exit(0);
     }
 	
@@ -550,9 +548,7 @@ public class VotingMain {
             }
         }
         return("False");
-    }
-	
-	
+    }	
 }
 
 /**

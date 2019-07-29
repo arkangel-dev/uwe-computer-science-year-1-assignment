@@ -1,0 +1,3 @@
+# Raw VS Code Java project
+
+Because Netbeans is a piece of shit and should NEVER be used for an important project. Also it creates random files *WHICH I HATE!* So I am using the Java Extention Pack for VS Code (https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Once you download and install this extention you can just open the project folder and hit `F5` to run the code.
