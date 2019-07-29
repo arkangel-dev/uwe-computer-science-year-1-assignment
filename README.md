@@ -8,6 +8,10 @@ This is the first assignment for the UWE Bsc (Hons) Computer science first year 
 - The contructors have been added.
 - Incremented the selection index
 - Added ID Card Field for Validation
+- Added check to make sure that officers cannot delete their own accounts while logged in
+- Added check to make sure that there is always atleast 1 officer in the system
+- Added check to make sure that there is more than 1 candidate to start the voting function
+- Added check to make sure that there are users capable of voting other than the candidate and officers
 
 ### Classes
 ```java
