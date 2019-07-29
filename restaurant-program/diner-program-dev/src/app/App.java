@@ -140,10 +140,6 @@ public class App {
         return(-1);
     }
     
-
-    
-
-    
     static void listFood(){
         // so what this function does is list all the available
         // food items and their details

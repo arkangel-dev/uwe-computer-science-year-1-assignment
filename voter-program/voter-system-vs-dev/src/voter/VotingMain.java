@@ -124,7 +124,7 @@ public class VotingMain {
 		}
 
 		// check if the only voters are the candidates and the officers...
-		if (voterList.length < (candidateList.length + officerList.length)){
+		if (voterList.length < 1){
 			System.out.println("\n[!] Error : Cannot start the election without a voter who not a candidate nor an officer\n");
 			exit(1);
 			return;
