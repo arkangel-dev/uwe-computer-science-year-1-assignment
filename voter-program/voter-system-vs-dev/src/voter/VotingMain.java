@@ -173,7 +173,7 @@ public class VotingMain {
 		System.out.println("<< Voting Completed >>");
 		System.out.println("----------------------");
 		for (int i = 0; i < candidateList.length; i++){
-			System.out.println(candidateList[i].UserName + "\t\t\t" + candidateList[i].votecount);
+			System.out.println(candidateList[i].UserName + " \t\t\t " + candidateList[i].votecount);
 		}
 
 		int greatestIndex = 0;
