@@ -62,7 +62,6 @@ public class networkManagement {
 			EmailUtil.sendEmail(session, toEmail,subject, body, title, replyTo);
 			
 		} catch (IOException e) {
-			//TODO: handle exception
 			System.out.println(e);
 		}
 	}

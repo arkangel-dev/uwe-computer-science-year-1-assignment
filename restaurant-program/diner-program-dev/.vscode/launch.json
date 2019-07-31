@@ -16,7 +16,8 @@
 			"name": "Debug (Launch)-App<diner-program-dev>",
 			"request": "launch",
 			"mainClass": "app.App",
-			"projectName": "diner-program-dev"
+			"projectName": "diner-program-dev",
+			"console" : "externalTerminal"
 		}
 	]
 }

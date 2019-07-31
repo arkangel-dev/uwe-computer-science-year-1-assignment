@@ -13,11 +13,8 @@ package app;
 // import java.io.PrintWriter;
 // import static java.lang.System.exit;
 import java.util.ArrayList;
-import java.util.Date;
+// import java.util.Date;
 import java.util.Scanner;
-
-
-
 
 
 
@@ -31,15 +28,117 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        print("Welcome to resturant thing");
-        print("--------------------------");
-		print("");
-		
 
-		makeOrder();
+		while (true){
+			clearConsole();
+			print("Welcome to the main menu");
+			print("======================== \n");
+			print("");
+			print("\t [1] Make sales");
+			print("\t [2] Show sales");
+			print("\t [3] Edit Items");
+			print("\n[+] Please make a selection");
+
+			int input_choice = adv_input.rangedInput(1, 3);
+			switch(input_choice){
+				case 1:
+					makeOrder();
+					break;
+				case 2:
+					viewSales();
+					break;
+				case 3:
+					editItemsMenu();
+					break;
+
+				default:
+					print("Missing function error : !!!");
+			}
+		}
+
+	}
+
+	/**
+	 * What this function does is clear the screen.
+	 */
+	public final static void clearConsole() {
+		try {
+			final String os = System.getProperty("os.name");
+			if (os.contains("Windows")) {
+					Runtime.getRuntime().exec("cls");
+			} else {
+					Runtime.getRuntime().exec("clear");
+			}}
+		catch (final Exception e) {
+			//  Handle any exceptions.
+		}
+		LotsOfLines();
+
+	}
+
+	static void viewSales(){
+		clearConsole();
+		ArrayList<Sale> oldSales = ReadWrite.loadSales();
+		for (int i = 0; i < oldSales.size(); i++){
+			Sale current = oldSales.get(i);
+			print(current.saleId + " | " + current.customername + " bought items worth $" + current.revenue + " (" + current.emailaddress + ")");
+			
+		}
+		print("\nPress any key to continue");
+		input();
+	}
+
+
+	/**
+	 * So what this function does is print out 300 lines that are blank until the terminal pushes the previous lines out of the buffer.
+	 * Right now it is only called by the clearConsole() function.
+	 */
+    static void LotsOfLines(){
+		// what this function does is print a lot of
+		// lines until the previous data is scrolled
+		// up
+        for (int i = 0; i < 50; i++){
+			System.out.println("");
+		}
     }
-    
+
+
+	static void editItemsMenu(){
+		clearConsole();
+		print("Edit Items Menu");
+		print("=============== \n");
+		print("\t [1] Add food item");
+		print("\t [2] Delete food item");
+		print("\t [3] Edit price");
+		print("\t [0] Return");
+		print("\n[+] Please make a selection");
+
+		int input_choice = adv_input.rangedInput(0, 3);
+		switch(input_choice){
+			case 1:
+				manageFood.add_food();
+				clearConsole();
+				break;
+			case 2:
+				manageFood.delete_food();
+				clearConsole();
+				return;
+			case 3:
+				manageFood.edit_price();
+				clearConsole();
+				return;
+			case 0:
+				print("[+] Going back");
+				clearConsole();
+				return;
+
+			default:
+				print("Missing function error : !!!");
+				return;
+		}}
+
     static void makeOrder(){
+		clearConsole();
         boolean lockedIn = true;
         print("Enter customer name :");
         print("---------------------");
@@ -57,25 +156,33 @@ public class App {
         print("Please select foods");
         print("-------------------");
         listFood();
-        ArrayList<FoodItem> food_list = new ArrayList<FoodItem>();
+        ArrayList<FoodItem> order_list = new ArrayList<FoodItem>();
         ArrayList<Integer> food_count_list = new ArrayList<Integer>();
-        ArrayList<FoodItem> order_list = ReadWrite.LoadFoods();
+		ArrayList<FoodItem> menue = ReadWrite.LoadFoods();
+		
+		ArrayList<String> saleNameEntry = new ArrayList<String>();
+		ArrayList<Integer> saleQuantityEntry = new ArrayList<Integer>();
         
         while(lockedIn){
             print("Enter an item and quantity");
             print("Type 'done' when finished");
-            Integer[] inputFromUser = adv_input.validateChoiceQ(1, order_list.size());
+            Integer[] inputFromUser = adv_input.validateChoiceQ(1, menue.size());
             
             if ((inputFromUser[0]) == -1 & inputFromUser[1] == -1){
-                print("Order completed");
+				print("Order completed");
+				//TODO : Fix stupidity
                 lockedIn = false;
             } else {
                 inputFromUser[0]--; // this decrementer will allow the list to not start from zero
-                food_list.add(order_list.get(inputFromUser[0]));
+                order_list.add(menue.get(inputFromUser[0]));
                 food_count_list.add(inputFromUser[1]);
-                order_list.get(inputFromUser[0]).orderCount ++;
+				menue.get(inputFromUser[0]).orderCount ++; // increment the class attrib orderCount
+				
+				saleNameEntry.add(menue.get(inputFromUser[0]).name);
+				saleQuantityEntry.add(inputFromUser[1]);
+				
             }
-        }
+		}
         
         print("");
         double sum = 0.0;
@@ -83,27 +190,25 @@ public class App {
 		print("----                                          --------    -----       -----");
 		
 		ArrayList<billEntry> emailBill = new ArrayList<billEntry>();
-        for (int i = 0; i < food_list.size(); i++){
-            print(adv_input.printLineCol( food_list.get(i).name,
+        for (int i = 0; i < order_list.size(); i++){
+            print(adv_input.printLineCol( order_list.get(i).name,
                                 food_count_list.get(i),
-                                food_list.get(i).price,
-								(food_list.get(i).price * food_count_list.get(i))));
+                                order_list.get(i).price,
+								(order_list.get(i).price * food_count_list.get(i))));
 			
 
 			billEntry tempBillE = new billEntry();
 
-			tempBillE.name = food_list.get(i).name;
-			tempBillE.finalp = (food_list.get(i).price * food_count_list.get(i));
-			tempBillE.price = food_list.get(i).price;
+			tempBillE.name = order_list.get(i).name;
+			tempBillE.finalp = (order_list.get(i).price * food_count_list.get(i));
+			tempBillE.price = order_list.get(i).price;
 			tempBillE.quantity = food_count_list.get(i);
 
 			emailBill.add(tempBillE);
-            sum += (food_list.get(i).price * food_count_list.get(i));
+            sum += (order_list.get(i).price * food_count_list.get(i));
 		}
 		
-		String emailBody = networkManagement.formatEmail(emailBill);
-
-		networkManagement.sendEmail("samramirez.personal@gmail.com", "Billing", "Billing", emailBody);
+		
 
         double gst = sum * 0.06;
         double grandTotal = sum + gst;
@@ -112,8 +217,26 @@ public class App {
         print("                                                          6% GST      $" + gst);
         print("                                                          Total       $" + grandTotal);
         print("                                                          -------------------");
-        
-        ReadWrite.writeToFoodFile(order_list);
+		
+
+		String customer_email = "None";
+		if (adv_input.confirmAction("send an email reciept to the customer")){
+			print("Enter the customers email please");
+			customer_email = input();
+			String emailBody = networkManagement.formatEmail(emailBill);
+			print("Please wait...");
+			networkManagement.sendEmail(customer_email, "Billing", "Billing", emailBody);
+		}
+
+		ArrayList<Sale> oldSales = ReadWrite.loadSales();
+		Sale currentNewSale = new Sale(adv_input.getRandomHexString(6), sum, customerName, customer_email);
+		oldSales.add(currentNewSale);
+
+		ReadWrite.writeToFoodFile(menue);
+		ReadWrite.WriteSales(oldSales);
+		// ReadWrite.writeToSalesFile(inputData);
+		print("\nPress any key to continue");
+		
     }
     
 
@@ -127,7 +250,7 @@ public class App {
         // [int]    means this customer has visited this place x number of
         //          times.
         ArrayList<Customer> history = new ArrayList<Customer>();
-        history = ReadWrite.Customers();
+        history = ReadWrite.loadCustomers();
         for (int i = 0; i < history.size(); i++){
             if (history.get(i).name.equals(name)){
                 if (history.get(i).averagespending != 0){
@@ -138,8 +261,12 @@ public class App {
             }
         }
         return(-1);
-    }
-    
+	}
+
+
+	// TODO : Specify customer emails during registration
+	// TODO : Ask customers if they want a receipts
+
     static void listFood(){
         // so what this function does is list all the available
         // food items and their details
@@ -167,7 +294,8 @@ public class App {
         // this function just prompts for an input and just
         // return the string... nothing else...
         Scanner VariableInput = new Scanner(System.in);
-        String input = VariableInput.nextLine();
+		String input = VariableInput.nextLine();
+		// VariableInput.close();
         return(input);
     }
     
@@ -198,13 +326,15 @@ class Customer {
     String id = "None";
     String name = "None";
     double averagespending = 0.00;
-    int visits = 0;
+	int visits = 0;
+	String email = "NA";
     
-    public Customer(String idIn, String nameIn, Double averagespendingIn, Integer visitsIn){
+    public Customer(String idIn, String nameIn, Double averagespendingIn, Integer visitsIn, String emailIn){
         id = idIn;
         name = nameIn;
         averagespending = averagespendingIn;
-        visits = visitsIn;
+		visits = visitsIn;
+		email = emailIn;
     }
 }
 
@@ -214,18 +344,15 @@ class Sale {
 	String saleId = "None";
 	/** This variable will record the revenue made by the sale. */
 	double revenue = 0.0;
-	/** This datetime object will record the date and time of the sale. */
-	Date datetime = new Date();
 	/** This variable will store the name of the custom with whom the system made a transaction */
 	String customername = "None";
 	/** This variable will store the email address of the user. It will be used to send the bill as an email to the customer */
     String emailaddress = "None";
 	
 	/** This is the constructor. It will set the values to all the values to the class members.*/
-    public Sale(String saleIdIn, double revenueIn, Date datetimeIn, String customernameIn, String emailaddressIn){
+    public Sale(String saleIdIn, double revenueIn, String customernameIn, String emailaddressIn){
         saleId = saleIdIn;
         revenue = revenueIn;
-        datetime = datetimeIn;
         customername = customernameIn;
         emailaddress = emailaddressIn;
     }

@@ -623,13 +623,11 @@ class Candidate extends Voter{
     public Candidate(String IdentityIn, String UsernameIn, String PassphraseIn, String IDCardIn) {
         super(IdentityIn, UsernameIn, PassphraseIn, IDCardIn);
     }
-
 }
 
 /**
  * This class is the officer class.
  * This class will contain all the data of the officer. It is extended to the Voter class so the Officer objects will also get to vote. This class has no special functions or variables since the system relies on user type to identify and authorise Officers.
- * 
  */
 class Officer extends Voter{
 

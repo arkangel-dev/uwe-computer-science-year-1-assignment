@@ -1,1 +1,1 @@
-0x001,Sam Ramirez,0.00,0
+0x001,Sam Ramirez,0.00,0,NA

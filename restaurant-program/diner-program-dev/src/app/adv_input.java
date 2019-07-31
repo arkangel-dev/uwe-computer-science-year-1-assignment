@@ -9,6 +9,8 @@ package app;
 import static app.App.print;
 import static app.App.input;
 import java.util.Scanner;
+import java.lang.NumberFormatException;
+import java.util.Random;
 
 /**
  *
@@ -89,15 +91,16 @@ public class adv_input {
         // untill they provide a number that is ranged between the 
         // parameters specified in the arguments
         boolean locked = true;
-        int input = 0;
+		int input = 0;
+		Scanner VariableInput = new Scanner(System.in);
         while(locked){
-                Scanner VariableInput = new Scanner(System.in);
                 input = VariableInput.nextInt();
                 if ((input >= min) & (input <= max)){
                         locked = false;
                 } else {
                         System.out.println("The input have to be between " + min + " and " + max);
-                }}
+				}}
+		// VariableInput.close();
         return(input);
     }
     
@@ -132,5 +135,45 @@ public class adv_input {
                                 priceIn + price_space + "$" + 
                                 totalIn;
         return(FinalReturn);
-    }
+	}
+	
+	static boolean confirmAction(String action_name){
+		App.print("You are about to " + action_name + ". Would you like to proceed?");
+		// boolean lockedIn = true;
+		String input = input();
+		if (input.toLowerCase().equals("y")){
+			return(true);
+		}
+		return(false);
+	}
+
+	static double getDouble(){
+		boolean lockedIn = true;
+		while (lockedIn){
+			try {
+				String attemptedString = input();
+				double return_value = Double.parseDouble(attemptedString);
+				return(return_value);
+			} catch (NumberFormatException e) {
+				print("Invalid input");
+			}}return(0.0);}
+
+	/**
+	 * What this function does is accept an integer and generate a random hex string with the length of the parameter provided. It is used for generating usernames.
+	 * @param Intger numchars
+	 * @return String
+	 */
+    public static String getRandomHexString(int numchars){
+        // this function will generate a 10 character
+        // hex string...
+        Random r = new Random();
+        StringBuffer sb = new StringBuffer();
+        while(sb.length() < numchars){
+            sb.append(Integer.toHexString(r.nextInt()));
+        }
+		return sb.toString().substring(0, numchars);
+	}
+
 }
+
+
