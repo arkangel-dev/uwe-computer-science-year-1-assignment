@@ -140,19 +140,23 @@ public class App {
 
     static void makeOrder(){
 		clearConsole();
+		Customer current;
+		boolean newUser = false;
         boolean lockedIn = true;
         print("Enter customer name :");
-        print("---------------------");
         String customerName = input();
         if (lookUpCustomer(customerName) == -1){
-            print("New customer!");
+			print("New customer!");
+			newUser = true;
         } else if (lookUpCustomer(customerName) == 0){
-            print("Found customer");
-            print("This customer is registered but has not purchased anything yet");
+			print("Found customer");
+			print("This customer is registered but has not purchased anything yet");
+			current = getCustomerByName(customerName);
         } else {
             print("Found Customer");
             print("This customer has made transactions with us " + lookUpCustomer(customerName) + " times");
-        }
+		}
+		
         print("");
         print("Please select foods");
         print("-------------------");
@@ -215,7 +219,7 @@ public class App {
         double gst = sum * 0.06;
         double grandTotal = sum + gst;
         print("                                                          -------------------");
-        print("                                                          Sub-total   $" + sum);
+        print("                                                          Sub-total   $" + twoDecimals.format(sum));
         print("                                                          6% GST      $" + twoDecimals.format(gst));
         print("                                                          Total       $" + twoDecimals.format(grandTotal));
         print("                                                          -------------------");
@@ -236,12 +240,32 @@ public class App {
 
 		ReadWrite.writeToFoodFile(menue);
 		ReadWrite.WriteSales(oldSales);
+
+		ArrayList<Customer> oldCustomers = ReadWrite.loadCustomers();
+		if (newUser){
+			String customerId = "0x" + adv_input.getRandomHexString(8);
+			Customer newCustomer = new Customer(customerId, customerName,0.00,0,customer_email);
+			oldCustomers.add(newCustomer);
+			ReadWrite.writeToCustomerFile(oldCustomers);
+		} else {
+			
+		}
+
 		// ReadWrite.writeToSalesFile(inputData);
 		print("\nPress any key to continue");
-		
     }
     
-
+	static Customer getCustomerByName(String id){
+		ArrayList<Customer> oldCustomerList = ReadWrite.loadCustomers();
+		Customer current;
+		for (int i = 0; i < oldCustomerList.size(); i++){
+			current = oldCustomerList.get(i);
+			if (current.name.equals(id)){
+				return(current);
+			}
+		}
+		return(oldCustomerList.get(0));
+	}
     
     static int lookUpCustomer(String name){
         // so this function will look up the name of a customer

@@ -145,6 +145,20 @@ public class ReadWrite {
 		return(returnObject);	
 	}
 
+	static void writeToCustomerFile(ArrayList<Customer> inputData){
+		try {
+			PrintWriter cf = new PrintWriter(new FileWriter("customers.txt"));
+			for (int i = 0; i < inputData.size(); i++){
+				Customer currentUser = inputData.get(i);
+				String currentString = currentUser.id + "," + currentUser.name + "," + currentUser.averagespending + "," + currentUser.visits + "," + currentUser.email + "\n";
+				cf.write(currentString);
+			}
+			cf.close();
+		} catch (IOException e){
+			App.print("Error : Cannot open customer.txt file | " + e);
+		}
+	}
+
 	static ArrayList<Sale> loadSales(){
 		ArrayList<Sale> returnObject = new ArrayList<Sale>();
 		try {

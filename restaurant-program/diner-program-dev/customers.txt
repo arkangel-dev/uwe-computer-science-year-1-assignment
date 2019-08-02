@@ -1,1 +1,1 @@
-0x001,Sam Ramirez,0.00,0,NA
+0xd23b1631,Sam Ramirez,0.0,0,samramirez.personal@gmail.com

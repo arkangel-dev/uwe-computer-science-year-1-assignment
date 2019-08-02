@@ -3,3 +3,6 @@ c5de8d,35.98,David,samramirez.personal@gmail.com
 626618,53.84,Ralph,asdurftech@gmail.com
 47b7bc,2.44,Coobie,None
 79b3b3,5.00,David Kenneth,None
+e06ec6,35.98,Hexflip,None
+b64bbe,35.98,HexFlip,None
+dbb8c0,35.98,Sam Ramirez,samramirez.personal@gmail.com
