@@ -12,6 +12,7 @@ package app;
 // import java.io.IOException;
 // import java.io.PrintWriter;
 // import static java.lang.System.exit;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 // import java.util.Date;
 import java.util.Scanner;
@@ -34,8 +35,8 @@ public class App {
 			print("Welcome to the main menu");
 			print("======================== \n");
 			print("");
-			print("\t [1] Make sales");
-			print("\t [2] Show sales");
+			print("\t [1] Take Order");
+			print("\t [2] Show Sales");
 			print("\t [3] Edit Items");
 			print("\n[+] Please make a selection");
 
@@ -208,20 +209,21 @@ public class App {
             sum += (order_list.get(i).price * food_count_list.get(i));
 		}
 		
-		
+	DecimalFormat twoDecimals = new DecimalFormat("####0.00");
+	
 
         double gst = sum * 0.06;
         double grandTotal = sum + gst;
         print("                                                          -------------------");
         print("                                                          Sub-total   $" + sum);
-        print("                                                          6% GST      $" + gst);
-        print("                                                          Total       $" + grandTotal);
+        print("                                                          6% GST      $" + twoDecimals.format(gst));
+        print("                                                          Total       $" + twoDecimals.format(grandTotal));
         print("                                                          -------------------");
 		
-
+        
 		String customer_email = "None";
-		if (adv_input.confirmAction("send an email reciept to the customer")){
-			print("Enter the customers email please");
+		if (adv_input.confirmAction("send an email receipt to the customer")){
+			print("Enter the customer's email please");
 			customer_email = input();
 			String emailBody = networkManagement.formatEmail(emailBill);
 			print("Please wait...");
