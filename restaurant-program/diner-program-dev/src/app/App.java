@@ -150,10 +150,9 @@ public class App {
         } else if (lookUpCustomer(customerName) == 0){
 			print("Found customer");
 			print("This customer is registered but has not purchased anything yet");
-			current = getCustomerByName(customerName);
         } else {
             print("Found Customer");
-            print("This customer has made transactions with us " + lookUpCustomer(customerName) + " times");
+			print("This customer has made transactions with us " + lookUpCustomer(customerName) + " times");
 		}
 		
         print("");
@@ -225,11 +224,23 @@ public class App {
 		
         
 		String customer_email = "None";
+<<<<<<< Updated upstream
 		if (adv_input.confirmAction("Send a receipt via email to the customer")){
 			print("Enter the customer's email please");
 			customer_email = input();
+=======
+		if (adv_input.confirmAction("send an email receipt to the customer")){
+			current = getCustomerByName(customerName);
+			
+			if (current.email.equals("None")){
+				print("Enter the customer's email please");
+				customer_email = input();
+			} else {
+				customer_email = current.email;
+			}
+			print("Sending email to " + customer_email + ". Please wait...");
+>>>>>>> Stashed changes
 			String emailBody = networkManagement.formatEmail(emailBill);
-			print("Please wait...");
 			networkManagement.sendEmail(customer_email, "Billing", "Billing", emailBody);
 		}
 
@@ -247,11 +258,17 @@ public class App {
 			oldCustomers.add(newCustomer);
 			ReadWrite.writeToCustomerFile(oldCustomers);
 		} else {
-			
+			current = getCustomerByName(customerName);
+			int index = getIndexCustomer(oldCustomers, current.name);
+			Customer selected = oldCustomers.get(index);
+			selected.visits += 1;
+			selected.averagespending += sum;
+			oldCustomers.set(index, selected);
+			ReadWrite.writeToCustomerFile(oldCustomers);
 		}
 
-		// ReadWrite.writeToSalesFile(inputData);
-		print("\nPress any key to continue");
+		print("\nPress any key to continue...");
+		input();
     }
     
 	static Customer getCustomerByName(String id){
@@ -264,6 +281,16 @@ public class App {
 			}
 		}
 		return(oldCustomerList.get(0));
+	}
+
+	static int getIndexCustomer(ArrayList<Customer> testList, String index){
+		for (int i = 0; i < testList.size(); i++){
+			Customer current = testList.get(i);
+			if (current.id.equals(index)){
+				return(i);
+			}
+		}
+		return(0);
 	}
     
     static int lookUpCustomer(String name){
@@ -287,10 +314,6 @@ public class App {
         }
         return(-1);
 	}
-
-
-	// TODO : Specify customer emails during registration
-	// TODO : Ask customers if they want a receipts
 
     static void listFood(){
         // so what this function does is list all the available

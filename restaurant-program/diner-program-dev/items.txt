@@ -1,5 +1,10 @@
-Chicken burger,12.99,4.5,71
+Chicken burger,12.99,4.5,79
 Steak burger,13.99,5.0,29
 Double Decker Taco,10.0,4.5,6
+<<<<<<< Updated upstream
 Dark Chocolate Cake,5.0,4.6,66
 Pink Salmon Mousse w/ fries,2.44,4.7,43
+=======
+Dark Chocolate Cake,5.0,4.6,74
+Pink Salmon Mousse /w fries,2.44,4.7,43
+>>>>>>> Stashed changes
