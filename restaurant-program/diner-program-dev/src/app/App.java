@@ -394,7 +394,7 @@ class Customer {
     String name = "None";
     double averagespending = 0.00;
 	int visits = 0;
-	String email = "NA";
+	String email = "None";
     
     public Customer(String idIn, String nameIn, Double averagespendingIn, Integer visitsIn, String emailIn){
         id = idIn;
