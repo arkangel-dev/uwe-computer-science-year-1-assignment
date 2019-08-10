@@ -299,7 +299,9 @@ public class App {
 				return(current);
 			}
 		}
-		return(oldCustomerList.get(0));
+
+		Customer fallback_return = new Customer("0", "0", 0.0, 0, "None");
+		return(fallback_return);
 	}
 
 	static int getIndexCustomer(ArrayList<Customer> testList, String index){

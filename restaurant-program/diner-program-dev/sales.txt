@@ -1,8 +1,1 @@
-b881d6,51.97,Steve,samramirez.personal@gmail.com
-c5de8d,35.98,David,samramirez.personal@gmail.com
-24415d,35.98,Sam Ramirez,samramirez.personal@gmail.com
-bc4ae9,35.98,Sam Ramirez,samramirez.personal@gmail.com
-633828,35.98,Sam Ramirez,samramirez.personal@gmail.com
-9e2ffd,35.98,Sam Ramirez,samramirez.personal@gmail.com
-67696e,35.98,Soos,samramirez.personal@gmail.com
-ef2dcb,35.98,Soosf,None
+ae76fb,25.98,Soos,nsa@gmail.com

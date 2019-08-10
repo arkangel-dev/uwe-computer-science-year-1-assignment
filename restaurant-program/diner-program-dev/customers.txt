@@ -1,5 +1,1 @@
-0xd23b1631,Sam Ramirez,35.980000000000004,6,samramirez.personal@gmail.com
-0x32a3655b,Soos,0.0,0,samramirez.personal@gmail.com
-1a74e494,Dave,0.0,0,None
-9434f604,Dave,0.0,0,None
-0xde0a61be,Soosf,0.0,0,None
+0x198e28e7,Soos,0.0,0,nsa@gmail.com
