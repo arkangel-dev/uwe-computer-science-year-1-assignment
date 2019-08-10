@@ -37,9 +37,10 @@ public class App {
 			print("\t [1] Take a new order");
 			print("\t [2] Show daily sales");
 			print("\t [3] Edit menu items");
+			print("\t [4] Register customer");
 			print("\n[+] Please make a selection");
 
-			int input_choice = adv_input.rangedInput(1, 3);
+			int input_choice = adv_input.rangedInput(1, 4);
 			switch(input_choice){
 				case 1:
 					makeOrder();
@@ -49,6 +50,9 @@ public class App {
 					break;
 				case 3:
 					editItemsMenu();
+					break;
+				case 4:
+					addCustomer();
 					break;
 
 				default:
@@ -85,6 +89,28 @@ public class App {
 			
 		}
 		print("\nPress any key to continue");
+		input();
+	}
+
+	static void addCustomer(){
+		clearConsole();
+		print("Enter the name of the customer : ");
+		String customer_name_input = input();
+		String email_addr;
+		if (adv_input.confirmAction("add an email to under this customers name")){
+			print("Enter the email address : ");
+			email_addr = input();
+		} else {
+			email_addr = "None";
+		}
+
+		Customer new_customer = new Customer(adv_input.getRandomHexString(8), customer_name_input, 0.0, 0, email_addr);
+
+		ArrayList<Customer> old_customers = ReadWrite.loadCustomers();
+		old_customers.add(new_customer);
+		ReadWrite.writeToCustomerFile(old_customers);
+		print("Customer has been added to the system.");
+		print("\nPress any key to continue...");
 		input();
 	}
 
@@ -224,14 +250,8 @@ public class App {
 		
         
 		String customer_email = "None";
-<<<<<<< Updated upstream
-		if (adv_input.confirmAction("Send a receipt via email to the customer")){
-			print("Enter the customer's email please");
-			customer_email = input();
-=======
 		if (adv_input.confirmAction("send an email receipt to the customer")){
 			current = getCustomerByName(customerName);
-			
 			if (current.email.equals("None")){
 				print("Enter the customer's email please");
 				customer_email = input();
@@ -239,7 +259,6 @@ public class App {
 				customer_email = current.email;
 			}
 			print("Sending email to " + customer_email + ". Please wait...");
->>>>>>> Stashed changes
 			String emailBody = networkManagement.formatEmail(emailBill);
 			networkManagement.sendEmail(customer_email, "Billing", "Billing", emailBody);
 		}
