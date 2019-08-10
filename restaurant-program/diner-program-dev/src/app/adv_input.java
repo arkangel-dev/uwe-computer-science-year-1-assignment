@@ -68,10 +68,10 @@ public class adv_input {
                         returnObject[1] = quantity;
                         return(returnObject);
                     } else {
-                    	print("Invalid input.");
+                    	print("Invalid input. Try again.");
                     }
                 } else {
-                    	print("Invalid input.");
+                    	print("Invalid input. Try again.");
                 }
             } catch(java.lang.NumberFormatException e){
                 	print("Invalid input.");
