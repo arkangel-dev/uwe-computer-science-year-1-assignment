@@ -138,7 +138,7 @@ public class adv_input {
 	}
 	
 	static boolean confirmAction(String action_name){
-		App.print("You are about to " + action_name + ". Would you like to proceed?");
+		App.print("You are about to " + action_name + ". Would you like to proceed? Type 'y' for YES and 'n' for NO.");
 		// boolean lockedIn = true;
 		String input = input();
 		if (input.toLowerCase().equals("y")){

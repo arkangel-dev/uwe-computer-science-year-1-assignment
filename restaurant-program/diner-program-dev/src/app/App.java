@@ -34,10 +34,9 @@ public class App {
 			clearConsole();
 			print("Welcome to the main menu");
 			print("======================== \n");
-			print("");
-			print("\t [1] Take Order");
-			print("\t [2] Show Sales");
-			print("\t [3] Edit Items");
+			print("\t [1] Take a new order");
+			print("\t [2] Show daily sales");
+			print("\t [3] Edit menu items");
 			print("\n[+] Please make a selection");
 
 			int input_choice = adv_input.rangedInput(1, 3);
@@ -226,7 +225,7 @@ public class App {
 		
         
 		String customer_email = "None";
-		if (adv_input.confirmAction("send an email receipt to the customer")){
+		if (adv_input.confirmAction("Send a receipt via email to the customer")){
 			print("Enter the customer's email please");
 			customer_email = input();
 			String emailBody = networkManagement.formatEmail(emailBill);

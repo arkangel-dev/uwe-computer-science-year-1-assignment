@@ -1,5 +1,0 @@
-Chicken burger,12.99,4.5,1
-Steak burger,13.99,5.0,0
-Double Decker Taco,10.0,4.5,0
-Dark Chocolate Cake,5.0,4.6,0
-Pink Salmon Mousse /w fries,2.44,4.7,34
