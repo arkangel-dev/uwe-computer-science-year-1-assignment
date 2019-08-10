@@ -38,8 +38,8 @@ public class ReadWrite {
     //         Scanner customerfile = new Scanner(new File("customers.txt"));
     //         while (customerfile.hasNextLine()){
     //             String currentLine = customerfile.nextLine();
-    //             String[] splitted_currentLine = currentLine.split(",");
-                
+	//             String[] splitted_currentLine = currentLine.split(",");
+	//
     //             if (splitted_currentLine.length != 4){
     //                 print("Error : customers file corrupted. " + currentLine);
     //                 exit(1);
