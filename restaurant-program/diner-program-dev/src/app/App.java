@@ -97,7 +97,7 @@ public class App {
 		print("Enter the name of the customer : ");
 		String customer_name_input = input();
 		String email_addr;
-		if (adv_input.confirmAction("add an email to under this customers name")){
+		if (adv_input.confirmAction("add an email for this customer")){
 			print("Enter the email address : ");
 			email_addr = input();
 		} else {
