@@ -102,8 +102,8 @@ public class App {
 		print("Enter the name of the customer : ");
 		String customer_name_input = input();
 		String email_addr;
-		if (adv_input.confirmAction("add an email to under this customers name")){
-			print("Enter the email address : ");
+		if (adv_input.confirmAction("add an email for this customer")){
+			print("\nEnter the email address : ");
 			email_addr = input();
 		} else {
 			email_addr = "None";
@@ -114,7 +114,7 @@ public class App {
 		ArrayList<Customer> old_customers = ReadWrite.loadCustomers();
 		old_customers.add(new_customer);
 		ReadWrite.writeToCustomerFile(old_customers);
-		print("Customer has been added to the system.");
+		print("\nCustomer has been added to the system.");
 		print("\nPress any key to continue...");
 		input();
 	}
@@ -176,19 +176,19 @@ public class App {
         print("Enter customer name :");
         String customerName = input();
         if (lookUpCustomer(customerName) == -1){
-			print("New customer!");
+			print("\nNew customer!");
 			newUser = true;
         } else if (lookUpCustomer(customerName) == 0){
-			print("Found customer");
-			print("This customer is registered but has not purchased anything yet");
+			print("\nFound customer");
+			print("\nThis customer is registered but has not purchased anything yet");
         } else {
             print("Found Customer");
-			print("This customer has made transactions with us " + lookUpCustomer(customerName) + " times");
+			print("\nThis customer has made transactions with us " + lookUpCustomer(customerName) + " times");
 		}
 		
         print("");
-        print("Please select foods");
-        print("-------------------");
+        print("Please select your items");
+        print("-------------------------");
         listFood();
         ArrayList<FoodItem> order_list = new ArrayList<FoodItem>();
         ArrayList<Integer> food_count_list = new ArrayList<Integer>();
@@ -198,12 +198,12 @@ public class App {
 		ArrayList<Integer> saleQuantityEntry = new ArrayList<Integer>();
         
         while(lockedIn){
-            print("Enter an item and quantity");
+            print("\nEnter an item and quantity");
             print("Type 'done' when finished");
             Integer[] inputFromUser = adv_input.validateChoiceQ(1, menue.size());
             
             if ((inputFromUser[0]) == -1 & inputFromUser[1] == -1){
-				print("Order completed");
+				print("\nOrder Completed");
 				//TODO : Fix stupidity
                 lockedIn = false;
             } else {
