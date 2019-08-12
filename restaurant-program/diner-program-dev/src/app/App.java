@@ -83,11 +83,16 @@ public class App {
 	static void viewSales(){
 		clearConsole();
 		ArrayList<Sale> oldSales = ReadWrite.loadSales();
+		double total_cost = 0.0;
 		for (int i = 0; i < oldSales.size(); i++){
 			Sale current = oldSales.get(i);
 			print(current.saleId + " | " + current.customername + " bought items worth $" + current.revenue + " (" + current.emailaddress + ")");
+			total_cost += current.revenue;
 			
 		}
+		print("---------------------------");
+		DecimalFormat twoDecimals = new DecimalFormat("####0.00");
+		print("Total revenue : $" + twoDecimals.format(total_cost));
 		print("\nPress any key to continue");
 		input();
 	}
