@@ -1,1 +1,14 @@
-0x198e28e7,Soos,0.0,0,nsa@gmail.com
+0x198e28e7,Soos,247.74,14,nsa@gmail.com
+0x3526c99a,Davy,0.0,0,samramirez.personal@gmail.com
+0xea1a8abb,Ziyaan,0.0,0,zeenu.skyfire@gmail.com
+0xff58e782,Sam Ramirez,0.0,0,samramirez.personal@gmail.com
+0x17903f1a,Sam,0.0,0,samramirez.personal@gmail.com
+baef308e,Mohamed,0.0,0,mohamed@gmail.com
+e7853523,Sammy,0.0,0,None
+4525fded,Tom,0.0,0,None
+edae5604,Mohamed,0.0,0,None
+40b0737a,Ahmed,0.0,0,None
+37896fec,MohamedZiaan,0.0,0,None
+1ff8aa37,Ziaan,0.0,0,None
+d82a1088,Ali Naseem,0.0,0,None
+36502485,Ali Naseem,0.0,0,zeenu.skyfire@gmail.com

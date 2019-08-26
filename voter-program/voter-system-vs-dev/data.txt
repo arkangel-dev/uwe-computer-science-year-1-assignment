@@ -1,11 +1,6 @@
-0x01,Bruce Wayne,ImNotBatman,f62eb340d4,A187635
-0x01,Gumball Watterson,WhatTheWhat,9d9a0432eb,A157360
-0x02,Wilson Higgsbury,PleaseEat,89dd1b84f5,A128647
-0x02,Captain Gary,GiveMeCookies,8863d33502,A143046
-0x02,Jake Peralta,NoinNoin,f7b9cd3e31,A193752
-0x03,Tribore Menendez,IsItWelcome123,71c82fd5d2,A204856
-0x03,Invader Zim,DieEarth,889e73e41b,A137256
-0x03,Rick Sanchez,WubbaLubba,e23536ee6f,A103658
-0x01,Rick Astley,NeverGonnaGiveYouUp,5b379bdc,A137099
-0x03,Amy Santiago,Password,BatMan,A145314
-0x01,Sammich Ramirez,Password,IsaamRameez,A111111
+0x01,Bruce Wayne,ImNotBatman,Batman,A187635
+0x02,Captain Gary,GiveMeCookies,Gary Goodspeed,A143046
+0x02,Jake Peralta,NoinNoin,Peralta,A193752
+0x02,Rick Astley,NeverGonnaGiveYouUp,Rick&Morty,A137099
+0x03,Tribore Menendez,IsItWelcome123,Tribore,A204856
+0x03,Sammich Ramirez,Password,IsaamRameez,A111111
